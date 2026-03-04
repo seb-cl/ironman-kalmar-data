@@ -132,7 +132,9 @@ Next Block Plan:
 | Base Build | CTL target met, decoupling <5%, compliance >85% | Approaching targets, no flags | HRV declining, compliance <70%, flags triggered |
 | Threshold | FTP improved or eFTP trending up, key sessions hit targets | Making progress, manageable fatigue | Stalled power, wellness declining |
 | Peak | Race-specific targets met, form (TSB) improving | Still sharpening | Overreached indicators |
+| Deload | Hard sessions resume, CTL stabilized, wellness restored | TSS still reduced, wellness not yet recovered | Overreached indicators persist |
 | Recovery | RI >0.90, HRV baseline restored, TSB >+10 | Still recovering | N/A — extend until criteria met |
+| Overreached | ACWR <1.3, monotony <2.5, wellness improving | ACWR still elevated or monotony still high | N/A — mandatory recovery until resolved |
 
 ## Notes
 
