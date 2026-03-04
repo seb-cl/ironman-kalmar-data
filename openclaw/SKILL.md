@@ -106,13 +106,19 @@ The skill performs simple HTTP GET requests to fetch:
 - Report templates from this repository
 - Athlete training data (`latest.json`, `history.json`) from user-configured URLs
 
-It does **not** send API keys, LLM chat histories, or any user data to external URLs. All fetched content comes from sources the user has explicitly configured.
+It does **not** send API keys, LLM chat histories, or any user data to external URLs. All fetched content comes from sources the user has explicitly configured. The combination of protocol fetch, data fetch, and optional write capabilities operates within layered trust boundaries: protocol comes from this auditable repo, data comes from user-configured sources, and writes require explicit user confirmation — no single compromise vector enables silent end-to-end misuse.
 
 **Recommended setup: local files or private repos**
 The safest and simplest setup is fully local: export your data as JSON and point the skill at files on your device (see `examples/json-manual/`). If you use GitHub, use a **private repository**. See `examples/json-auto-sync/SETUP.md` for automated sync setup including private repo usage with agents.
 
 **Protocol and template URLs**
 The default protocol and template URLs point to this repository. The risk model is standard open-source supply-chain.
+
+**Supply-chain trust model**
+The coaching protocol (`SECTION_11.md`) is fetched at runtime from this repository — the same repository that contains the skill itself. This is a deliberate design choice: protocol updates ship without requiring skill reinstallation. The trust boundary is identical to any open-source dependency: if this repository is compromised, both code and protocol are compromised. Users who need stricter control can fork the repository and point fetch URLs at their own copy, making the trust boundary explicit and self-managed.
+
+**Write path security model**
+All write operations (`push.py`) default to preview mode — the agent sees what *would* be written but nothing executes without explicit `--confirm` from the user. GitHub Actions dispatch reuses secrets (`ATHLETE_ID`, `INTERVALS_KEY`) already configured in the user's own repository; the skill does not store, request, or transmit these credentials. Write capabilities are only available on platforms that support code execution; instruction-only environments (web chat, most LLM interfaces) cannot trigger writes. The attack surface for writes requires: a compromised protocol *and* a platform with code execution *and* the user explicitly confirming the action.
 
 **Heartbeat / automation**
 The heartbeat mechanism is fully opt-in. It is not enabled by default and nothing runs automatically unless the user explicitly configures it. When enabled, it performs a narrow set of actions: read training data, run analysis, write updated summaries/plans to the user's chosen location.
