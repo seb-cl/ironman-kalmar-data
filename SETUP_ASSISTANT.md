@@ -39,15 +39,15 @@ Tell the user:
 
 Early in the conversation, ask:
 
-> "Quick question before we start — do you care more about **ease of setup**, or **maximum privacy and a better long-term experience**?
+> "Quick question before we start — how do you plan to use your AI coach?
 >
-> **Easy setup:** Public repo + web chat (like a ChatGPT or Claude project). About 20 minutes, works in your browser from any device, your AI fetches your data automatically. Your training data is anonymized by default, so a public repo is fine for most people.
+> **Web chat (most people):** A ChatGPT, Claude, Gemini, Grok, or Mistral project. About 20 minutes to set up, works in your browser from any device. Most platforms now have GitHub connectors that can access private repos directly — so you get both privacy and convenience.
 >
-> **Privacy + better experience:** Private repo + agent platform (OpenClaw, Claude Cowork, Claude Code, etc.). More setup upfront, and typically only works on the device you set it up on — but the AI can read private repos, fetch data automatically, and do more over time."
+> **Agent platform (power users):** OpenClaw, Claude Code, Claude Cowork, ChatGPT Codex, Gemini CLI. More setup upfront, but the AI can execute code, push workouts to your calendar, and do more over time. Typically only works on the device you set it up on."
 
-**If they pick easy setup (or aren't sure):** Follow the **Golden Path** below. Public repo, web chat.
+**If they pick web chat (or aren't sure):** Follow the **Golden Path** below.
 
-**If they pick privacy + better experience:** Follow the Golden Path for Steps 1–7 (same for both), but set the repo to **private** in Step 3, then follow **Agent Path** in Step 8.
+**If they pick agent platform:** Follow the Golden Path for Steps 1–7 (same for both), then follow **Agent Path** in Step 8.
 
 ---
 
@@ -86,7 +86,8 @@ A "repository" (repo) is just a folder on GitHub that holds their files. A "work
    - Go to https://github.com/new
    - Name it something like `my-training-data` or `t1-data` (their choice)
    - **Easy setup path:** set to **Public** (the data is anonymized by default — no personal info is exposed)
-   - **Privacy path:** set to **Private**
+   - **Privacy-conscious:** set to **Private** — most web chat platforms (ChatGPT, Claude, Gemini, Mistral) now have GitHub connectors that can access private repos directly
+   - **Agent path:** set to **Private**
    - Check **"Add a README file"**
    - Click **Create repository**
 4. Copy these files from the Section 11 repo into their new repo:
@@ -236,9 +237,26 @@ This is where the two paths diverge.
 
 ---
 
-#### Golden Path: Web chat setup (public repo)
+#### Golden Path: Web chat setup
 
-Walk them through setting up a ChatGPT or Claude project. If they use a different platform (Grok, Mistral, Gemini), adapt these instructions — the concept is the same: create a project, paste instructions, upload files. Note that Gemini's file access and web search behavior varies across Google accounts, so it may not work for everyone.
+Walk them through setting up a ChatGPT or Claude project. If they use a different platform (Grok, Mistral, Gemini), adapt these instructions — the concept is the same: create a project, paste instructions, upload files.
+
+**Before starting, check if their platform has a GitHub connector:**
+
+Most major AI platforms now have native GitHub connectors. If theirs does, they can use a **private repo** and skip the URL-based fetch entirely — the connector reads their data directly.
+
+**Note:** These connectors are for web chat platforms only and are currently read-only — they cannot trigger GitHub Actions workflows. For that, the user needs an [agentic platform](#agent-path-private-repo--agent-platform).
+
+| Platform | GitHub Connector | Can Trigger Actions | How to Connect |
+|----------|-----------------|---------------------|----------------|
+| ChatGPT | Varies by plan | No | Settings → Apps → GitHub |
+| Claude | All plans including Free | No | Settings → Integrations → GitHub, or "+" in Project Knowledge |
+| Gemini | Varies by account | No | + → Import code, or Connected Apps |
+| Grok | Rolling out | TBD | Settings → Connected Apps |
+| Mistral | All tiers incl. free | Not yet | Side panel → Intelligence → Connectors |
+| Perplexity | Pro, Max, and Enterprise | No | App Connectors |
+
+If they have a connector available, walk them through connecting it and skip the fetch URLs in the instructions below. If not (or if they prefer simplicity), the URL-based approach works with a public repo.
 
 **1. Create a Project:**
 
@@ -311,18 +329,18 @@ Tell them to upload these two files to their project's knowledge/files section:
 | `DOSSIER.md` | The dossier they created in Step 7 (from their data repo) |
 
 **Platform-specific notes:**
-- **ChatGPT Projects:** Upload to "Project Files." Browsing is enabled by default on Plus/Team.
+- **ChatGPT Projects:** Upload to "Project Files." If using the GitHub connector (Settings → Apps → GitHub), it can read your private repo directly — no need for public URLs.
 - **ChatGPT CustomGPT:** Upload to "Knowledge" under Configure. Enable "Web Browsing" in Capabilities.
-- **Claude Projects:** Upload to "Project Knowledge." Enable "Web search" in settings (required for JSON fetch).
-- **Grok:** Upload to "Sources" in Project configuration.
-- **Mistral (Le Chat):** Upload during project creation. Web access is available.
-- **Gemini Gems:** Paste Section 11 content into the instructions field and upload the dossier separately. *(Note: Gemini behavior varies across Google accounts — it may not work for everyone. See troubleshooting in the README if you run into issues.)*
+- **Claude Projects:** Upload to "Project Knowledge." GitHub connector: click "+" in Project Knowledge → search/paste your repo URL → select files. Or enable "Web search" in settings for URL-based fetch.
+- **Grok:** Upload to "Sources" in Project configuration. GitHub connector rolling out via Settings → Connected Apps.
+- **Mistral (Le Chat):** Upload during project creation. GitHub connector: side panel → Intelligence → Connectors → GitHub.
+- **Gemini Gems:** Paste Section 11 content into the instructions field and upload the dossier separately. GitHub connector: click + → Import code → paste repo URL. *(Note: Gemini capabilities vary across Google accounts and Workspace editions — it may not work for everyone. If Gemini can't access your repo, try downloading the section-11 repo as a zip and uploading it directly.)*
 
 ---
 
 #### Agent Path: Private repo + agent platform
 
-If the user chose the privacy path, their repo is private and web-based AI chats can't fetch the JSON URLs. They need an agent platform that can connect to GitHub directly.
+If the user chose the agent path, they want code execution capabilities — pushing workouts to calendar, running sync.py locally, filesystem access. Their repo should be private.
 
 Ask which platform they use or want to try, then walk them through:
 
@@ -333,22 +351,27 @@ Ask which platform they use or want to try, then walk them through:
 4. OpenClaw can read private repos, fetch data automatically, and run heartbeat checks
 5. Point them to: https://github.com/CrankAddict/section-11/tree/main/openclaw
 
-**Claude Cowork:**
-1. Clone their data repo locally
-2. Grant Cowork access to that folder
-3. Alternatively, use the GitHub MCP connector in Cowork settings for direct repo access
-4. Upload or point to SECTION_11.md and their DOSSIER.md
-
 **Claude Code:**
 1. Install Claude GitHub App: https://github.com/apps/claude/installations/select_target
 2. Grant access to their private data repo
 3. Or clone locally and work with local files
 4. Upload SECTION_11.md and DOSSIER.md
 
-**OpenAI Codex:**
+**Claude Cowork:**
+1. Clone their data repo locally
+2. Grant Cowork access to that folder
+3. Alternatively, use the GitHub MCP connector in Cowork settings for direct repo access
+4. Upload or point to SECTION_11.md and their DOSSIER.md
+
+**ChatGPT Codex:**
 1. Connect GitHub at https://chatgpt.com/codex
 2. Authorize access to their data repo
 3. Codex clones the repo and can read `latest.json` and `history.json` directly
+
+**Gemini CLI:**
+1. Install: `npm install -g @google/gemini-cli` (or `npx @google/gemini-cli`)
+2. Clone the data repo locally — Gemini CLI has full filesystem access
+3. Supports MCP extensions for additional tool integration
 
 **Optional: Enable calendar push**
 
