@@ -26,10 +26,11 @@ An open protocol for deterministic, auditable AI-powered endurance coaching. Bui
 | [SECTION_11.md](SECTION_11.md) | Complete protocol: AI Coach Guidance (11 A), Training Plan Protocol (11 B), Validation Protocol (11 C) |
 | [examples/workout-library/](examples/workout-library/) | Workout Reference Library — 26 session templates that Section 11 B §8 requires AI systems to select from |
 | [examples/agentic/](examples/agentic/) | Write planned workouts to Intervals.icu calendar — for agentic AI platforms with code execution |
+| [examples/json-local-sync/](examples/json-local-sync/) | Local automated sync for agentic platforms — no GitHub needed |
 | [DOSSIER_TEMPLATE.md](DOSSIER_TEMPLATE.md) | Blank athlete dossier template — fill in your own data |
 | [examples/](examples/) | JSON sync setup, report templates, README template, example files |
 | [SETUP_ASSISTANT.md](SETUP_ASSISTANT.md) | Interactive AI-guided setup — paste into any AI chat to get started |
-| [changelog.json](changelog.json) | Version tracking — consumed by sync.py for update notifications |
+| [manifest.json](manifest.json) | Version tracking — consumed by sync.py for update notifications |
 | [LICENSE](LICENSE) | MIT — permissive license, commercial use allowed with attribution |
 
 ---
@@ -50,16 +51,15 @@ You can also follow the step-by-step guides below.
 
 Copy `DOSSIER_TEMPLATE.md` and fill in your athlete profile (age, weight, goals), equipment, current FTP/HR zones, training schedule, and nutrition protocol.
 
-### 2. Set Up Your Data Mirror (Optional but Recommended)
+### 2. Set Up Your Data Sync (Recommended)
 
-Create a JSON endpoint with your current Intervals.icu data so AI coaches can access real-time metrics without manual input each session.
+Keep your Intervals.icu data fresh for your AI coach automatically.
 
-```
-https://raw.githubusercontent.com/[USERNAME]/[REPO]/main/latest.json
-https://raw.githubusercontent.com/[USERNAME]/[REPO]/main/history.json
-```
+**[GitHub sync](examples/json-auto-sync/SETUP.md)** — GitHub Actions syncs every 15 minutes to a private repo. Your AI reads via GitHub connector or raw URL. Zero maintenance after setup.
 
-See [examples/](examples/) for setup guides: [automated sync](examples/json-auto-sync/SETUP.md) (recommended) or [manual export](examples/json-manual/SETUP.md).
+**[Local sync](examples/json-local-sync/SETUP.md)** — a script on a machine you control syncs your data on a timer. Your AI reads directly from the filesystem or via a cloud connector (Google Drive, OneDrive, etc.). No GitHub needed.
+
+**[Manual export](examples/json-manual/SETUP.md)** — run once, upload the file. No automation.
 
 ### 3. Configure Your AI Platform
 
@@ -90,7 +90,7 @@ Add these instructions to your AI Project/Space settings:
 ```
 # AI Coach Instructions
 
-You are my endurance cycling coach. Follow Section 11 protocol strictly.
+You are my endurance coach. Follow Section 11 protocol strictly.
 
 ## DATA ACCESS:
 1. Note today's date
@@ -189,7 +189,9 @@ Most major AI platforms now have native GitHub connectors that can access privat
 
 For AI platforms that can execute code, access the filesystem, and run shell commands. These platforms can read your JSON files directly (no web fetch needed), push planned workouts to your Intervals.icu calendar, and run sync.py locally.
 
-> **The most reliable experience is the agentic path:** a private repo with an agent platform that has GitHub access gives the AI direct access to your data and the full protocol without depending on web search or manual uploads.
+> **Recommended for agentic: [Local sync](examples/json-local-sync/SETUP.md).** sync.py runs on a timer, the agent reads files directly. Cheapest, fastest, most reliable. No GitHub needed.
+
+> **Alternative: GitHub sync.** A private repo with GitHub Actions gives you multi-device access and backup. Follow the per-platform instructions below.
 
 ### OpenClaw (formerly ClawdBot/MoltBot)
 
@@ -440,7 +442,7 @@ The script maintains `ftp_history.json` to track indoor and outdoor FTP changes 
 
 ### Update Notifications
 
-The sync script automatically checks for upstream protocol updates. When a new version of Section 11 is released, a GitHub Issue is created in your data repo.
+The sync script checks for upstream updates using `manifest.json`. **GitHub Actions users** get a GitHub Issue created in their data repo when updates are available. **Local users** see a one-line notification during sync runs (once per day) and can run `--update` to pull changes. See [json-local-sync](examples/json-local-sync/SETUP.md#staying-up-to-date) for details.
 
 ### Data Hierarchy
 
