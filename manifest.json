@@ -1,55 +1,111 @@
 {
-  "scope": "Operational files that affect coaching quality or sync infrastructure. These are the files --update compares and pulls. --init downloads the entire repo as a zip and does not use this manifest for file discovery.",
+  "scope": "All tracked files in the Section 11 repository. --update compares file hashes to detect changes and new files.",
   "files": {
-    "sync.py": {
-      "version": "3.76",
-      "path": "examples/sync.py",
-      "description": "Data sync engine"
+    "CONTRIBUTING.md": {
+      "hash": "4f6594d68a39571fed5b2ee68f0ecc1307e67ae11a824cf23b1ad075c794e3eb"
     },
-    "push.py": {
-      "version": "0.3",
-      "path": "examples/agentic/push.py",
-      "description": "Calendar write engine"
+    "DOSSIER_TEMPLATE.md": {
+      "hash": "f62f21a6b3ee1513088e3ae53fd7bc6e7046810e53509070c656cd1e61b64c44"
     },
-    "auto-sync.yml": {
-      "version": "1.0",
-      "path": "examples/json-auto-sync/auto-sync.yml",
-      "description": "GitHub Actions workflow for automated sync"
+    "LICENSE": {
+      "hash": "0683b6ae3ded5701305dae4114d317d4346c175824d8db87a22d18e05a61ff77"
     },
-    "push-workout.yml": {
-      "version": "1.0",
-      "path": "examples/agentic/push-workout.yml",
-      "description": "GitHub Actions workflow for push.py dispatch"
+    "README.md": {
+      "hash": "2dabc50aaa4623273780f8170bb005697da3e1e9602a2e25ca19905be8ba8cf2"
     },
     "SECTION_11.md": {
-      "version": "11.13",
-      "path": "SECTION_11.md",
+      "hash": "19301e86897a9052001c07c3210ba866e4153430f8bfe3a98fab2ad7e1e25656",
       "description": "Coaching protocol"
     },
-    "WORKOUT_REFERENCE.md": {
-      "version": "0.6",
-      "path": "examples/workout-library/WORKOUT_REFERENCE.md",
-      "description": "Session template library"
+    "SECURITY.md": {
+      "hash": "47a0b437722547662e2215a759678cccaeb91984734337bfe2392185d71976d5"
     },
-    "PRE_WORKOUT_REPORT_TEMPLATE.md": {
-      "version": "1.0",
-      "path": "examples/reports/PRE_WORKOUT_REPORT_TEMPLATE.md",
-      "description": "Pre-workout report template"
+    "SETUP_ASSISTANT.md": {
+      "hash": "bcca9dad3c91b0a92acc4ad892f44090b326e281c5ec1556af5ffda027cbfb94"
     },
-    "POST_WORKOUT_REPORT_TEMPLATE.md": {
-      "version": "1.0",
-      "path": "examples/reports/POST_WORKOUT_REPORT_TEMPLATE.md",
-      "description": "Post-workout report template"
+    "changelog.json": {
+      "hash": "ec22d360cdb9c3bb140e023dd9f74cb32de1c42fab3f7b357b55091762857af3"
     },
-    "WEEKLY_REPORT_TEMPLATE.md": {
-      "version": "1.0",
-      "path": "examples/reports/WEEKLY_REPORT_TEMPLATE.md",
-      "description": "Weekly report template"
+    "examples/README.md": {
+      "hash": "eba91bbc58d21fcf284ac72bfbd293191e3ef2b0fd62a894086519132832e4d2"
     },
-    "BLOCK_REPORT_TEMPLATE.md": {
-      "version": "1.0",
-      "path": "examples/reports/BLOCK_REPORT_TEMPLATE.md",
-      "description": "Block report template"
+    "examples/agentic/README.md": {
+      "hash": "32324c44da946aecf20a0ec1dfe2a104b1aed099b681c6c1acbaed6624b6d8e5"
+    },
+    "examples/agentic/push-workout.yml": {
+      "hash": "c9e586d433e7dd6abc3d80a3daf9ca5156b02c0de7cc8011fec138f2d09701b4"
+    },
+    "examples/agentic/push.py": {
+      "hash": "a44e7f207b44f190ab43bf6cb56f415a7cdef2e6aff072a2653ab090fa790b21"
+    },
+    "examples/json-auto-sync/DATA_REPO_README_TEMPLATE.md": {
+      "hash": "45d09cb1d63d0ed450b603a94ec3ae56ad1013fd7c7676d45ff90ebc4b0e81f0"
+    },
+    "examples/json-auto-sync/SETUP.md": {
+      "hash": "29795b7bfacae1e3071b26382637f79383243f6990044a698b83fdd776f58675"
+    },
+    "examples/json-auto-sync/auto-sync.yml": {
+      "hash": "fd13a0ed2e2f609310b951c10513bc5e9bfbba5847e52c651d1f7ce0339ed443"
+    },
+    "examples/json-auto-sync/ftp_history.json": {
+      "hash": "074a8c441e843935e93ce515f10f787b3ac27fcce28ecc3aa404ead919db44b2"
+    },
+    "examples/json-auto-sync/history.json": {
+      "hash": "242bb6a7595a1d4dd712d5415733f61f4a76e164a1ed1ead452b7e3f793bf834"
+    },
+    "examples/json-auto-sync/latest.json": {
+      "hash": "4bb8409294e1a34b2f1edc30e3dfbd6adda45970f2977f6e9d76ec75f9ef2ba8"
+    },
+    "examples/json-local-sync/SETUP.md": {
+      "hash": "6f46167b83dbc9d67b94343fea69f2eb4bd42312e3ae455e2ac504be4f56d874"
+    },
+    "examples/json-manual/SETUP.md": {
+      "hash": "ae75d174bf7756898fd0a803d4ecb90ffc86aaa4099fad26a8130e18c3b440d9"
+    },
+    "examples/reports/BLOCK_REPORT_EXAMPLES.md": {
+      "hash": "5b0eca47cbdbe99beac0fef1fd2e8b9a8f49d853ec6414537a3658ae28d67ebe"
+    },
+    "examples/reports/BLOCK_REPORT_TEMPLATE.md": {
+      "hash": "321a286fd4d95c594490ffdc0b836172150f1aefaefb9a8c22983018be6acaf2"
+    },
+    "examples/reports/POST_WORKOUT_REPORT_EXAMPLES.md": {
+      "hash": "59bb5c3f47b6565c78de24ca0dcfed24ec23e18cae648e03925c7600ef3b1826"
+    },
+    "examples/reports/POST_WORKOUT_REPORT_TEMPLATE.md": {
+      "hash": "62b9c3118e936940aa203d456901b5dd3fcb477666898b4d8b1948d8271c2abf"
+    },
+    "examples/reports/PRE_WORKOUT_REPORT_EXAMPLES.md": {
+      "hash": "ad9b1ee073d6492235f41fd38a9328a44353fc21ff31d758526990db86e07719"
+    },
+    "examples/reports/PRE_WORKOUT_REPORT_TEMPLATE.md": {
+      "hash": "4f2f245640e34c00e661be65c673934736f624167f44bcbed2bd23202a585bc9"
+    },
+    "examples/reports/README.md": {
+      "hash": "9b35bb1209cc7d6285eff4345741b6901dab42f6991aeb0b804fd393c8d67b77"
+    },
+    "examples/reports/REPORT_HIERARCHY.md": {
+      "hash": "6acd33c11d114c21788a76cfbcb453c4f1c14f9bc1e0754bdb2869108389a1fa"
+    },
+    "examples/reports/WEEKLY_REPORT_EXAMPLES.md": {
+      "hash": "fbe9ec64bb129ec8d97f9e6ae41d7f9c60ee1b3ac508ab559f0bc39ca48eafdd"
+    },
+    "examples/reports/WEEKLY_REPORT_TEMPLATE.md": {
+      "hash": "ca3eb9d84ad1ab13cc0a1cbdbebcd0e0c3ad7758c2fc6a51489f2f38961ed361"
+    },
+    "examples/sync.py": {
+      "hash": "da0f094e1359fc196a311e7fbaefc500e5c5780515525a51d53d2ebe9b6e9e0e"
+    },
+    "examples/workout-library/README.md": {
+      "hash": "f22d96050da8a601aac627ddb44b717f31daa9adc88b1cedf3f56a0b87dec6f4"
+    },
+    "examples/workout-library/WORKOUT_REFERENCE.md": {
+      "hash": "1649665af7f7060596e3b90a94237fb09da1fc57e82d4f3187a50e42d6ca1b09"
+    },
+    "openclaw/HEARTBEAT_TEMPLATE.md": {
+      "hash": "04f7989f2471943f633c56eed6aabf054526911b6cc24487564788f78175662f"
+    },
+    "openclaw/SKILL.md": {
+      "hash": "277b04c45a61062760b2b9823295b2b3ce4ab1c09da39ff008f16eed375d5ac3"
     }
   }
 }
