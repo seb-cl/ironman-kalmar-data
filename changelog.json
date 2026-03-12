@@ -1,7 +1,7 @@
 {
   "notification_id": "2026-03-12",
   "changes": [
-    "— sync.py v3.81 + SECTION_11.md v11.14 — Feel removed from readiness signal chain (2026-03-12) —",
+    "— sync.py v3.81 + SECTION_11.md v11.14 —  Activity feel removed from readiness signal chain (2026-03-12) —",
     "Readiness signals 7 → 6 (HRV, RHR, Sleep, TSB, ACWR, RI). Feel is retrospective — stays in activity data, history, and report templates.",
     "— sync.py v3.80 — --update orphan cleanup (2026-03-11) —",
     "— GitHub connector as first-class data path across all docs (2026-03-12) —",
