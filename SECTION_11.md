@@ -1,10 +1,20 @@
 # Section 11 — AI Coach Protocol
 
-**Protocol Version:** 11.20  
-**Last Updated:** 2026-03-22
+**Protocol Version:** 11.21  
+**Last Updated:** 2026-03-23
 **License:** [MIT](https://opensource.org/licenses/MIT)
 
 ### Changelog
+
+**v11.21 — Sleep Signal Simplification:**
+- Sleep quality and sleep score removed from readiness signal classification — hours only
+- Rationale: sleep quality/score are device-derived composites of HRV + HR during sleep, already captured as independent signals. Including them double-counts the same underlying physiology
+- Sleep signal now: Green ≥ 7h, Amber 5–7h, Red < 5h (no quality component)
+- Sleep quality/score remain in wellness data as coaching context — not wired into readiness_decision
+- HRV-unavailable fallback removed (sleep quality no longer substitutes as primary subjective readiness indicator)
+- `Sleep Quality = 4 → Reduce intensity` decision rule removed (downstream impact shows in HRV/RHR)
+- Tier 1 hierarchy updated: Sleep (hours) replaces Sleep (quality + hours)
+- sync.py v3.90
 
 **v11.20 — HR Curve Delta (Capability Metric):**
 - New capability metric: `hr_curve_delta` compares max sustained HR at 4 anchor durations (60s/300s/1200s/3600s) across two 28-day windows
@@ -858,7 +868,7 @@ AI systems must only consider caloric-reduction or weight-optimization phases du
 |--------|-------|-------|-----|
 | HRV | Within ±10% of 7d baseline | ↓ 10–20% | ↓ >20% |
 | RHR | At or below baseline | ↑ 3–4 bpm | ↑ ≥5 bpm |
-| Sleep | ≥ 7h AND quality ≤ 2 | 5–7h OR quality 3 | < 5h OR quality 4 |
+| Sleep | ≥ 7h | 5–7h | < 5h |
 | TSB | > phase threshold (default -15) | Between threshold and -30 | < -30 |
 | ACWR | 0.8–1.3 | <0.8 or 1.3–1.5 | > 1.5 |
 | RI | ≥ 0.8 | 0.6–0.79 | < 0.6 |
@@ -1061,7 +1071,8 @@ It governs acute, session-level performance safety, ensuring localized overreach
 **Key Variables:**
 - HRV (ms): 7-day rolling baseline comparison
 - RHR (bpm): 7-day rolling baseline comparison
-- Sleep Quality (1–4): Subjective quality rating (inverted scale: 1=Great, 4=Poor) — manual entry or auto-derived from device sleep score
+- Sleep Hours: Objective duration. Classified as readiness signal (Green ≥ 7h, Amber 5–7h, Red < 5h)
+- Sleep Quality / Sleep Score: Excluded from readiness classification (v11.21). These are device-derived composites of HRV + HR during sleep — signals already captured independently. Downstream impact of poor sleep surfaces in HRV and RHR. Quality/score remain in wellness data as coaching context.
 - Feel (1–5): Manual subjective entry (1=Strong, 2=Good, 3=Normal, 4=Poor, 5=Weak)
 
 **Extended Wellness Fields (v3.85+):** sync.py passes through all Intervals.icu wellness fields — subjective state (stress, mood, motivation, injury, fatigue, soreness, hydration), vitals (spO2, blood glucose, blood pressure, Baevsky SI, lactate, respiration), body composition (body fat, abdomen), nutrition (kcal, carbs, protein, fat), lifestyle (steps, hydration volume), and cycle tracking (menstrual phase). All categorical fields use a 1→4 positional scale where **1 = best state, 4 = worst state**. Per-field labels are in `wellness_field_scales` in READ_THIS_FIRST. Fields are null when not reported. These are coaching context — none are wired into the automated readiness_decision pipeline.
@@ -1079,7 +1090,6 @@ Feel/RPE is not wired into the automated readiness_decision pipeline. It enriche
 **Decision Logic:**
 - HRV ↓ > 20% vs baseline → Active recovery / easy spin
 - RHR ↑ ≥ 5 bpm vs baseline → Fatigue / illness flag
-- Sleep Quality = 4 → Reduce next-session intensity by 1 zone
 
 The following thresholds apply to wellness-level Feel. If Feel is present in the data, use it. If absent and other signals are ambiguous, solicit it. If absent and the picture is clear, do not ask.
 
@@ -1090,8 +1100,6 @@ The following thresholds apply to wellness-level Feel. If Feel is present in the
 
 **Integration:**
 Daily metrics synchronised through data hierarchy and mirrored in JSON dataset each morning. AI-coach systems must reference latest values before prescribing or validating any session.
-
-If HRV unavailable, Sleep quality substitutes as primary subjective readiness indicator.
 
 ---
 
@@ -1680,7 +1688,7 @@ To ensure AI systems evaluate metrics in the correct order:
 │  • Recovery Index (RI)                                      │
 │  • HRV (vs baseline)                                        │
 │  • RHR (vs baseline)                                        │
-│  • Sleep (quality + hours)                                  │
+│  • Sleep (hours)                                            │
 │                                                             │
 │  → These determine GO / NO-GO for training                  │
 └─────────────────────────────────────────────────────────────┘

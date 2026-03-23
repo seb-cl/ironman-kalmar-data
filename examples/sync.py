@@ -4,6 +4,10 @@ Intervals.icu → GitHub/Local JSON Export
 Exports training data for LLM access.
 Supports both automated GitHub sync and manual local export.
 
+Version 3.90 - Sleep signal simplified: hours only. Sleep quality/score removed from readiness
+  classification — they are device-derived composites of HRV + HR during sleep, already captured as
+  independent signals. Quality still passes through in signal output as coaching context.
+
 Version 3.89 - Phase detection current-week patch: overlay fresh CTL/TSS/hard_days/ACWR/monotony
   onto the current week's weekly_180d row at runtime, so phase classification always uses live data
   instead of stale history.json snapshot (up to 28 days old). Fixes phase flip caused by stale
@@ -14,14 +18,7 @@ Version 3.88 - HR Curve Delta: max sustained HR comparison at 4 anchor durations
   Data key is 'values' (not 'watts'). Rotation index: mean(60s,300s) - mean(1200s,3600s).
   Same capability namespace, same guards, same pattern as power_curve_delta.
 
-Version 3.87 - Power Curve Delta: energy system adaptation tracking via MMP comparison across two
-  28-day windows. New power-curves API call (single request, two windows, sport-filtered type=Ride).
-  Five anchor durations (5s/60s/300s/1200s/3600s) with per-anchor pct_change and rotation_index
-  (sprint-biased vs endurance-biased gains). Lives in capability namespace alongside durability/EF/HRRc/TID.
-  Curve matching by response ID (not list index) — handles empty windows gracefully.
-  Null guards: per-anchor when duration missing or watts 0/null, block-level when <3 valid anchors.
-
-Version 3.86–3.85 — Primary sport TSS filtering for phase detection, wellness field expansion
+Version 3.87–3.85 — Power curve delta, primary sport TSS filtering for phase detection, wellness field expansion
 Version 3.84–3.80 — Activity description passthrough, per-sport zone preference, interval-level data, feel removed from readiness, orphan cleanup
 Versions 3.7–3.79 — Phase detection v2, readiness decision, HRRc, week alignment, local sync pipeline, hash manifest, feel/RPE fix
 Versions 3.3.0–3.6.5 — EF tracking, HR zone fallback, race calendar, durability, TID, alerts, history.json, smart fitness metrics
@@ -54,7 +51,7 @@ class IntervalsSync:
     HISTORY_FILE = "history.json"
     UPSTREAM_REPO = "CrankAddict/section-11"
     CHANGELOG_FILE = "changelog.json"
-    VERSION = "3.89"
+    VERSION = "3.90"
     INTERVALS_FILE = "intervals.json"
 
     # Sport families eligible for interval-level data extraction.
@@ -3516,10 +3513,10 @@ class IntervalsSync:
             rhr_delta = None
             signals["rhr"] = {"status": "unavailable", "value": latest_rhr, "baseline_7d": rhr_baseline_7d, "delta_bpm": None}
         
-        # Sleep signal
+        # Sleep signal (hours only — sleep quality/score excluded from readiness; v3.90)
         if sleep_hours is not None:
-            sleep_red = sleep_hours < 5 or (sleep_quality is not None and sleep_quality >= 4)
-            sleep_amber = (not sleep_red) and (sleep_hours < 7 or (sleep_quality is not None and sleep_quality >= 3))
+            sleep_red = sleep_hours < 5
+            sleep_amber = (not sleep_red) and sleep_hours < 7
             if sleep_red:
                 sleep_status = "red"
             elif sleep_amber:
