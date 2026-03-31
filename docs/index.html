@@ -592,19 +592,20 @@
       <div style="margin-top: 20px;">
         <div class="action-grid">
           <div class="action-card primary-action" onclick="runAction('sync_download')">
-            <div class="action-badge">recommended</div>
+            <div class="action-badge">recommended pre-workout</div>
             <div class="action-icon icon-blue">🔄</div>
             <div class="action-body">
               <h3>Sync + Download all</h3>
-              <p>Triggers the GitHub workflow to sync data, waits for completion, then downloads both <code>latest.json</code> and <code>history.json</code> as a ZIP.</p>
+              <p>Triggers the GitHub workflow, waits for completion, then downloads <code>latest.json</code>, <code>intervals.json</code> and <code>history.json</code> as a ZIP.</p>
             </div>
           </div>
 
-          <div class="action-card" onclick="runAction('sync_download_latest')">
+          <div class="action-card primary-action" onclick="runAction('sync_download_latest')">
+            <div class="action-badge">recommended post-workout</div>
             <div class="action-icon icon-green">⚡</div>
             <div class="action-body">
               <h3>Sync + Download latest</h3>
-              <p>Syncs via workflow and downloads only <code>latest.json</code> — faster when you only need recent sessions.</p>
+              <p>Syncs via workflow then downloads <code>latest.json</code> and <code>intervals.json</code> as a ZIP — ideal after a session when you only need recent data.</p>
             </div>
           </div>
 
@@ -620,15 +621,31 @@
             <div class="action-icon icon-muted">⬇</div>
             <div class="action-body">
               <h3>Download all (no sync)</h3>
-              <p>Immediately downloads the current <code>latest.json</code> and <code>history.json</code> as a ZIP without triggering a workflow run.</p>
+              <p>Downloads current <code>latest.json</code>, <code>intervals.json</code> and <code>history.json</code> as a ZIP — no workflow triggered.</p>
             </div>
           </div>
 
           <div class="action-card" onclick="runAction('download_latest')">
             <div class="action-icon icon-muted">📄</div>
             <div class="action-body">
-              <h3>Download latest only (no sync)</h3>
-              <p>Downloads only <code>latest.json</code> directly from the repo — no workflow triggered, no ZIP.</p>
+              <h3>Download latest + intervals (no sync)</h3>
+              <p>Downloads <code>latest.json</code> and <code>intervals.json</code> as a ZIP directly from the repo — no workflow triggered.</p>
+            </div>
+          </div>
+
+          <div class="action-card" onclick="runAction('download_intervals')">
+            <div class="action-icon icon-muted">📊</div>
+            <div class="action-body">
+              <h3>Download intervals only (no sync)</h3>
+              <p>Downloads only <code>intervals.json</code> directly from the repo — no workflow triggered, no ZIP.</p>
+            </div>
+          </div>
+
+          <div class="action-card" onclick="runAction('download_history')">
+            <div class="action-icon icon-muted">🗂</div>
+            <div class="action-body">
+              <h3>Download history only (no sync)</h3>
+              <p>Downloads only <code>history.json</code> directly from the repo — no workflow triggered, no ZIP.</p>
             </div>
           </div>
         </div>
@@ -667,7 +684,7 @@
         <div class="field">
           <label>Token — download content <span class="tag">required</span></label>
           <div class="field-desc">
-            Used to fetch raw files from your private repo (<code>latest.json</code>, <code>history.json</code>).<br>
+            Used to fetch raw files from your private repo (<code>latest.json</code>, <code>intervals.json</code>, <code>history.json</code>).<br>
             Minimum scopes: <code>repo</code> (or <code>contents: read</code> for fine-grained tokens).
           </div>
           <input type="password" id="cfg-token-dl" placeholder="github_pat_…">
@@ -729,10 +746,6 @@
         <p style="font-size:13px; color:var(--muted); margin-bottom:16px; line-height:1.6;">
           Export your settings encrypted with a password of your choice — uses AES-256-GCM via the browser's built-in Web Crypto API. No library, nothing leaves your device. Store the file anywhere; only the password unlocks it.
         </p>
-
-        <div class="alert alert-warn" id="claude-export-warn" style="margin-bottom:16px;">
-          ⚠ <strong>Export is not available when the page is published on Claude.ai</strong> — the sandbox blocks file downloads. Open the <code>.html</code> file directly in your local browser to use export and import.
-        </div>
 
         <div class="btn-row">
           <button class="btn btn-ghost" onclick="openModal('export')">🔒 Export encrypted</button>
@@ -1298,9 +1311,11 @@ async function runAction(type) {
   setProgress(true, 5, 'Starting…');
 
   try {
-    const needsSync = type === 'sync' || type === 'sync_download' || type === 'sync_download_latest';
-    const needsDownloadAll = type === 'sync_download' || type === 'download_all';
-    const needsDownloadLatest = type === 'sync_download_latest' || type === 'download_latest';
+    const needsSync = ['sync', 'sync_download', 'sync_download_latest'].includes(type);
+    const needsDownloadAll    = ['sync_download', 'download_all'].includes(type);
+    const needsDownloadLatest = ['sync_download_latest', 'download_latest'].includes(type);
+    const needsDownloadIntervals = type === 'download_intervals';
+    const needsDownloadHistory   = type === 'download_history';
 
     if (needsSync) {
       const ok = await triggerWorkflow();
@@ -1320,7 +1335,7 @@ async function runAction(type) {
       } else {
         log(`Workflow ended with: ${conclusion}`, 'log-line err');
         setProgress(false);
-        if (type === 'sync') { setProgress(true, 100, 'Done (with errors)'); }
+        if (type === 'sync') setProgress(true, 100, 'Done (with errors)');
         return;
       }
     } else {
@@ -1331,11 +1346,19 @@ async function runAction(type) {
       log('Sync complete — no download requested.', 'log-line ok');
       setProgress(true, 100, 'Sync complete ✓');
     } else if (needsDownloadAll) {
-      await downloadZip(['latest.json', 'history.json']);
+      await downloadZip(['latest.json', 'intervals.json', 'history.json']);
       log('Download complete ✓', 'log-line ok');
       setProgress(true, 100, 'Done ✓');
     } else if (needsDownloadLatest) {
-      await downloadSingle('latest.json');
+      await downloadZip(['latest.json', 'intervals.json']);
+      log('Download complete ✓', 'log-line ok');
+      setProgress(true, 100, 'Done ✓');
+    } else if (needsDownloadIntervals) {
+      await downloadSingle('intervals.json');
+      log('Download complete ✓', 'log-line ok');
+      setProgress(true, 100, 'Done ✓');
+    } else if (needsDownloadHistory) {
+      await downloadSingle('history.json');
       log('Download complete ✓', 'log-line ok');
       setProgress(true, 100, 'Done ✓');
     }
@@ -1349,8 +1372,6 @@ async function runAction(type) {
 loadFromStorage();
 updateNavStatus();
 renderActionPage();
-
-document.getElementById('claude-export-warn').classList.add('visible');
 </script>
 </body>
 </html>
