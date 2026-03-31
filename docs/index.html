@@ -1239,11 +1239,14 @@ function rawUrl(file) {
 }
 
 async function fetchFile(file) {
-  const res = await fetch(rawUrl(file), {
-    headers: { 'Authorization': `token ${cfg.tokenDl}` }
-  });
+  const branch = cfg.branch || 'main';
+  const url = `https://api.github.com/repos/${cfg.repo}/contents/${file}?ref=${branch}`;
+  const res = await fetch(url, { headers: ghHeaders(cfg.tokenDl) });
   if (!res.ok) throw new Error(`HTTP ${res.status} fetching ${file}`);
-  return res.blob();
+  const json = await res.json();
+  const binary = atob(json.content.replace(/\n/g, ''));
+  const bytes = Uint8Array.from(binary, c => c.charCodeAt(0));
+  return new Blob([bytes], { type: 'application/json' });
 }
 
 function timestamp() {
