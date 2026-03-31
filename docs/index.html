@@ -507,42 +507,6 @@
     margin: 24px 0;
   }
 
-  /* ── AI link ── */
-  .ai-link-box {
-    background: var(--accent2-dim);
-    border: 1px solid rgba(16,185,129,0.2);
-    border-radius: var(--radius);
-    padding: 18px 22px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    margin-bottom: 20px;
-    display: none;
-  }
-
-  .ai-link-box.visible { display: flex; }
-
-  .ai-link-box .ai-label { font-size: 12px; color: var(--accent2); font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 2px; }
-  .ai-link-box .ai-name { font-size: 15px; font-weight: 500; }
-
-  .ai-link-box a {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--accent2);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 500;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-
-  .ai-link-box a:hover { opacity: 0.85; }
-
   /* ── Tag ── */
   .tag {
     display: inline-block;
@@ -607,13 +571,10 @@
         <p>Trigger GitHub workflows and download your training data files.</p>
       </div>
 
-      <!-- AI tool link -->
-      <div class="ai-link-box" id="ai-link-box">
-        <div>
-          <div class="ai-label">Your AI tool</div>
-          <div class="ai-name" id="ai-link-name">—</div>
-        </div>
-        <a href="#" id="ai-link-href" target="_blank">Open ↗</a>
+      <!-- AI tools -->
+      <div id="ai-tools-box" style="display:none; margin-bottom:18px;">
+        <div style="font-size:11px; font-family:var(--mono); color:var(--muted); text-transform:uppercase; letter-spacing:.12em; margin-bottom:10px;">Your AI tools</div>
+        <div id="ai-tools-buttons" style="display:flex; flex-wrap:wrap; gap:10px;"></div>
       </div>
 
       <!-- Config warning -->
@@ -700,7 +661,7 @@
         <div class="card-title">🔑 GitHub tokens</div>
 
         <div class="alert alert-info visible" style="margin-bottom:18px;">
-          You can use the same token for both roles, or separate tokens with minimal permissions. Tokens are stored only in local storage — never transmitted to any server other than GitHub.
+          You can use the same token for both roles, or separate tokens with minimal permissions. Tokens are stored only in your browser local storage — never transmitted to any server other than GitHub.
         </div>
 
         <div class="field">
@@ -748,24 +709,17 @@
         </div>
       </div>
 
-      <!-- AI tool -->
+      <!-- AI tools -->
       <div class="card">
-        <div class="card-title">🤖 AI tool</div>
+        <div class="card-title">🤖 AI tools</div>
 
-        <div class="field">
-          <label>AI chat URL <span class="tag">optional</span></label>
-          <div class="field-desc">
-            The URL of your preferred AI chat tool. When set, a shortcut link will appear on the Actions page so you can jump directly there after downloading your training files.<br>
-            Example: <code>https://claude.ai/new</code> or <code>https://chat.openai.com</code>
-          </div>
-          <input type="url" id="cfg-ai-url" placeholder="https://claude.ai/new">
+        <div class="field-desc" style="margin-bottom:14px;">
+          Add one or more AI chat tools. Each will appear as a shortcut button on the Actions page. Label is optional — URL will be used if omitted.
         </div>
 
-        <div class="field">
-          <label>Label <span class="tag">optional</span></label>
-          <div class="field-desc">A friendly name for the link, e.g. "Claude" or "ChatGPT".</div>
-          <input type="text" id="cfg-ai-label" placeholder="Claude">
-        </div>
+        <div id="ai-tools-list"></div>
+
+        <button class="btn btn-ghost" onclick="addAiToolRow()" style="margin-top:4px;">+ Add tool</button>
       </div>
 
       <!-- Save/Load -->
@@ -775,6 +729,10 @@
         <p style="font-size:13px; color:var(--muted); margin-bottom:16px; line-height:1.6;">
           Export your settings encrypted with a password of your choice — uses AES-256-GCM via the browser's built-in Web Crypto API. No library, nothing leaves your device. Store the file anywhere; only the password unlocks it.
         </p>
+
+        <div class="alert alert-warn" id="claude-export-warn" style="margin-bottom:16px;">
+          ⚠ <strong>Export is not available when the page is published on Claude.ai</strong> — the sandbox blocks file downloads. Open the <code>.html</code> file directly in your local browser to use export and import.
+        </div>
 
         <div class="btn-row">
           <button class="btn btn-ghost" onclick="openModal('export')">🔒 Export encrypted</button>
@@ -870,13 +828,24 @@ function renderActionPage() {
   const warn = document.getElementById('config-warn');
   warn.classList.toggle('visible', !isConfigured());
 
-  const box = document.getElementById('ai-link-box');
-  if (cfg.aiUrl) {
-    box.classList.add('visible');
-    document.getElementById('ai-link-href').href = cfg.aiUrl;
-    document.getElementById('ai-link-name').textContent = cfg.aiLabel || cfg.aiUrl;
+  const tools = cfg.aiTools || [];
+  const box = document.getElementById('ai-tools-box');
+  const container = document.getElementById('ai-tools-buttons');
+  container.innerHTML = '';
+  if (tools.length > 0) {
+    box.style.display = 'block';
+    tools.forEach(t => {
+      if (!t.url) return;
+      const a = document.createElement('a');
+      a.href = t.url;
+      a.target = '_blank';
+      a.textContent = (t.label || t.url) + ' ↗';
+      a.className = 'btn btn-success';
+      a.style.textDecoration = 'none';
+      container.appendChild(a);
+    });
   } else {
-    box.classList.remove('visible');
+    box.style.display = 'none';
   }
 }
 
@@ -887,22 +856,42 @@ function renderSettingsPage() {
   document.getElementById('cfg-token-wf').value = cfg.tokenWf || '';
   document.getElementById('cfg-workflow').value = cfg.workflow || '';
   document.getElementById('cfg-branch').value = cfg.branch || '';
-  document.getElementById('cfg-ai-url').value = cfg.aiUrl || '';
-  document.getElementById('cfg-ai-label').value = cfg.aiLabel || '';
 
   const sameToken = cfg.sameToken || false;
   document.getElementById('cfg-same-token').checked = sameToken;
   document.getElementById('field-gh-token').style.display = sameToken ? 'none' : 'block';
+
+  const list = document.getElementById('ai-tools-list');
+  list.innerHTML = '';
+  const tools = cfg.aiTools || [];
+  if (tools.length === 0) {
+    addAiToolRow();
+  } else {
+    tools.forEach(t => addAiToolRow(t.url, t.label));
+  }
 }
 
-function toggleSameToken() {
-  const same = document.getElementById('cfg-same-token').checked;
-  document.getElementById('field-gh-token').style.display = same ? 'none' : 'block';
+/* ── AI tool rows ── */
+function addAiToolRow(url = '', label = '') {
+  const list = document.getElementById('ai-tools-list');
+  const row = document.createElement('div');
+  row.style.cssText = 'display:grid; grid-template-columns:1fr 140px 32px; gap:8px; margin-bottom:8px; align-items:center;';
+  row.innerHTML = `
+    <input type="url" class="ai-tool-url" placeholder="https://claude.ai/new" value="${url}">
+    <input type="text" class="ai-tool-label" placeholder="Label (optional)" value="${label}">
+    <button onclick="this.closest('div').remove()" style="background:var(--danger-dim);color:var(--danger);border:1px solid rgba(239,68,68,.25);border-radius:6px;cursor:pointer;font-size:16px;line-height:1;padding:4px 8px;">×</button>
+  `;
+  list.appendChild(row);
 }
 
 /* ── Save settings ── */
 function saveSettings() {
   const sameToken = document.getElementById('cfg-same-token').checked;
+  const aiTools = Array.from(document.querySelectorAll('#ai-tools-list > div')).map(row => ({
+    url: row.querySelector('.ai-tool-url').value.trim(),
+    label: row.querySelector('.ai-tool-label').value.trim(),
+  })).filter(t => t.url);
+
   cfg = {
     repo: document.getElementById('cfg-repo').value.trim(),
     tokenDl: document.getElementById('cfg-token-dl').value.trim(),
@@ -912,12 +901,16 @@ function saveSettings() {
     sameToken,
     workflow: document.getElementById('cfg-workflow').value.trim() || 'sync.yml',
     branch: document.getElementById('cfg-branch').value.trim() || 'main',
-    aiUrl: document.getElementById('cfg-ai-url').value.trim(),
-    aiLabel: document.getElementById('cfg-ai-label').value.trim(),
+    aiTools,
   };
   saveToStorage();
   updateNavStatus();
   showAlert('settings-alert', 'ok', '✓ Settings saved to local storage.');
+}
+
+function toggleSameToken() {
+  document.getElementById('field-gh-token').style.display =
+    document.getElementById('cfg-same-token').checked ? 'none' : 'block';
 }
 
 function clearSettings() {
@@ -1237,10 +1230,6 @@ async function pollWorkflow(onProgress) {
   });
 }
 
-function rawUrl(file) {
-  return `https://raw.githubusercontent.com/${cfg.repo}/main/${file}`;
-}
-
 async function fetchFile(file) {
   const branch = cfg.branch || 'main';
   const url = `https://api.github.com/repos/${cfg.repo}/contents/${file}?ref=${branch}`;
@@ -1360,6 +1349,8 @@ async function runAction(type) {
 loadFromStorage();
 updateNavStatus();
 renderActionPage();
+
+document.getElementById('claude-export-warn').classList.add('visible');
 </script>
 </body>
 </html>
