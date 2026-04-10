@@ -128,7 +128,7 @@ All training data is stored where the user chooses: on their own device or in a 
 The skill reads from: user-configured JSON data sources and DOSSIER.md in the data directory, and HEARTBEAT.md in the agent workspace. It writes to: DOSSIER.md in the data directory and HEARTBEAT.md in the agent workspace (during first-use setup only).
 
 **Data Handling**
-`sync.py` redacts `athlete_id` from the output and replaces outdoor activity names with "Training Session" (strips location-revealing ride names). Both are on by default. All other training data — activities, wellness, intervals, power/HR values, dates — is passed through to the AI coach as-is.
+`sync.py` redacts `athlete_id` from the output (always on, unconditional). Activity names are passed through as-is — they carry coaching context (route identification, terrain association). All other training data — activities, wellness, intervals, power/HR values, dates — is passed through to the AI coach as-is.
 
 **Network behavior**
 When running locally (files in the data directory), no network requests are needed for protocol, templates, or data. When files are not available locally, the skill performs simple HTTP GET requests to fetch them from configured sources.

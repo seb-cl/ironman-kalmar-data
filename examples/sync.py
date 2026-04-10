@@ -501,7 +501,7 @@ class IntervalsSync:
         }
 
     
-    def _generate_intervals(self, activities: List[Dict], anonymize: bool = False) -> set:
+    def _generate_intervals(self, activities: List[Dict]) -> set:
         """
         Generate intervals.json with incremental caching.
         
@@ -513,12 +513,7 @@ class IntervalsSync:
         DFA a1 (v3.99): for each new qualifying activity, also fetches streams
         (dfa_a1, artifacts, heartrate, watts) and computes a per-session dfa block.
         Attached to the activity entry as 'dfa' key when AlphaHRV recorded.
-
-        Anonymization (v3.99 fix): when anonymize=True, outdoor activity names are
-        replaced with "Training Session" matching _format_activities behaviour.
-        Without this, intervals.json would leak raw outdoor names while latest.json
-        anonymizes them — a privacy consistency bug.
-
+        
         Returns set of activity IDs that have interval data (for has_intervals flag).
         """
         now = datetime.now()
@@ -626,14 +621,11 @@ class IntervalsSync:
             # Structured intervals without AlphaHRV: has segments, no dfa.
             # Both: full entry. Neither: skip silently.
             if segments or dfa_block is not None:
-                entry_name = act.get("name", "")
-                if anonymize and act.get("type", "") in self.OUTDOOR_TYPES:
-                    entry_name = "Training Session"
                 entry = {
                     "activity_id": act_id,
                     "date": act.get("start_date_local", "")[:10],
                     "type": act.get("type", "Unknown"),
-                    "name": entry_name,
+                    "name": act.get("name", ""),
                     "interval_summary": act.get("interval_summary"),
                     "intervals": segments
                 }
@@ -1394,7 +1386,7 @@ class IntervalsSync:
         
         return None, None
     
-    def collect_training_data(self, days_back: int = 7, anonymize: bool = False) -> Dict:
+    def collect_training_data(self, days_back: int = 7) -> Dict:
         """Collect all training data for LLM analysis"""
         # Extended range for ACWR calculation (need 28 days minimum)
         days_for_acwr = 28
@@ -1534,7 +1526,7 @@ class IntervalsSync:
         )
         
         # Format planned workouts — used by both phase detection and output
-        formatted_planned_workouts = self._format_events(near_future_events, anonymize, today=today)
+        formatted_planned_workouts = self._format_events(near_future_events, today=today)
         
         # Fetch power curves for delta analysis (two 28-day windows)
         print("Fetching power curves...")
@@ -1622,7 +1614,7 @@ class IntervalsSync:
         # MUST run before _calculate_derived_metrics so self._intervals_data is
         # populated when _calculate_dfa_a1_profile reads it (v3.99 fix).
         print("Checking for interval data...")
-        interval_activity_ids = self._generate_intervals(activities_display, anonymize)
+        interval_activity_ids = self._generate_intervals(activities_display)
         if interval_activity_ids:
             print(f"  📊 {len(interval_activity_ids)} activit{'y' if len(interval_activity_ids) == 1 else 'ies'} with interval data")
         
@@ -1733,7 +1725,7 @@ class IntervalsSync:
                 }
             },
             "metadata": {
-                "athlete_id": "REDACTED" if anonymize else self.athlete_id,
+                "athlete_id": "REDACTED",
                 "last_updated": datetime.now().isoformat(),
                 "data_range_days": days_back,
                 "extended_range_days": days_for_acwr,
@@ -1801,7 +1793,7 @@ class IntervalsSync:
                 }
             },
             "derived_metrics": derived_metrics,
-            "recent_activities": self._format_activities(activities_extended, anonymize, interval_activity_ids),
+            "recent_activities": self._format_activities(activities_extended, interval_activity_ids),
             "wellness_data": self._format_wellness(wellness),
             "planned_workouts": formatted_planned_workouts,
             "workout_summary_stats": getattr(self, '_summary_stats', {}),
@@ -6267,7 +6259,7 @@ class IntervalsSync:
             if self.debug:
                 print(f"  Could not create update issue: {e}")
     
-    def _format_activities(self, activities: List[Dict], anonymize: bool = False, interval_activity_ids: set = None) -> List[Dict]:
+    def _format_activities(self, activities: List[Dict], interval_activity_ids: set = None) -> List[Dict]:
         """Format activities for LLM analysis"""
         interval_activity_ids = interval_activity_ids or set()
         chat_notes_cutoff = (datetime.now() - timedelta(days=7)).strftime("%Y-%m-%d")
@@ -6337,9 +6329,6 @@ class IntervalsSync:
                 zone_dist = None
             
             activity_name = act.get("name", "")
-            if anonymize:
-                if act.get("type", "") in self.OUTDOOR_TYPES:
-                    activity_name = "Training Session"
             
             raw_hrrc = act.get("icu_hrr")
             if isinstance(raw_hrrc, dict):
@@ -6932,7 +6921,7 @@ class IntervalsSync:
         except Exception:
             return None
     
-    def _format_events(self, events: List[Dict], anonymize: bool = False, today: str = None) -> List[Dict]:
+    def _format_events(self, events: List[Dict], today: str = None) -> List[Dict]:
         """
         Format planned workouts with workout_summary and tiered detail (v3.6.2).
         
@@ -8166,7 +8155,6 @@ def main():
     parser.add_argument("--github-repo", help="GitHub repo (format: username/repo)")
     parser.add_argument("--days", type=int, default=7, help="Days of data to export (default: 7)")
     parser.add_argument("--output", help="Save to local file instead of GitHub")
-    parser.add_argument("--anonymize", action="store_true", default=True, help="Remove identifying information (default: enabled)")
     parser.add_argument("--debug", action="store_true", help="Show debug output for API fields")
     parser.add_argument("--week-start", choices=["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
                         default=None, help="Training week start day (default: mon, or from config)")
@@ -8309,7 +8297,7 @@ def main():
     
     print(f"\n🔄 Fetching {args.days} days of data (extended 28 days for ACWR)...")
     
-    data = sync.collect_training_data(days_back=args.days, anonymize=args.anonymize)
+    data = sync.collect_training_data(days_back=args.days)
     
     # Extract derived metrics for display
     dm = data.get("derived_metrics", {})
@@ -8360,8 +8348,7 @@ def main():
     
     if args.output:
         filepath = sync.save_to_file(data, args.output)
-        if args.anonymize:
-            print(f"   🔒 Anonymization: ENABLED")
+        print(f"   🔒 Athlete ID: REDACTED")
         print(f"\n✅ Data saved to {filepath}")
         print_summary()
         print(f"\n💡 Tip: Paste contents to AI, or upload the file directly")
@@ -8397,8 +8384,7 @@ def main():
         raw_url = sync.publish_to_github(data)
         
         print(f"\n✅ Data published to GitHub")
-        if args.anonymize:
-            print(f"   🔒 Anonymization: ENABLED")
+        print(f"   🔒 Athlete ID: REDACTED")
         print_summary()
         print(f"\n📊 Static URL for LLMs:")
         print(f"   {raw_url}")
