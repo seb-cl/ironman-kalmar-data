@@ -1,0 +1,76 @@
+{
+  "generated_at": "2026-04-24T04:20:46.781076",
+  "version": "3.106",
+  "script_hash": "f323f1d6d720",
+  "scan_hours": 72,
+  "retention_days": 14,
+  "activities": [
+    {
+      "activity_id": "i142412886",
+      "date": "2026-04-24",
+      "type": "Run",
+      "name": "Badung - Aerobic Endurance Run",
+      "interval_summary": [
+        "1x 7m12s 136bpm",
+        "4x 6m2s 149bpm",
+        "1x 1m52s 160bpm"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "432s@136bpm79rpm",
+          "duration_secs": 432,
+          "avg_hr": 136,
+          "max_hr": 147,
+          "avg_cadence": 79.15509,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "362s@149bpm88rpm",
+          "duration_secs": 374,
+          "avg_hr": 147,
+          "max_hr": 158,
+          "avg_cadence": 85.649734,
+          "zone": 2
+        },
+        {
+          "type": "WORK",
+          "label": "362s@149bpm88rpm",
+          "duration_secs": 362,
+          "avg_hr": 148,
+          "max_hr": 157,
+          "avg_cadence": 88.57735,
+          "zone": 2
+        },
+        {
+          "type": "WORK",
+          "label": "362s@149bpm88rpm",
+          "duration_secs": 357,
+          "avg_hr": 148,
+          "max_hr": 155,
+          "avg_cadence": 88.97479,
+          "zone": 2
+        },
+        {
+          "type": "WORK",
+          "label": "362s@149bpm88rpm",
+          "duration_secs": 353,
+          "avg_hr": 153,
+          "max_hr": 161,
+          "avg_cadence": 89.51842,
+          "zone": 2
+        },
+        {
+          "type": "WORK",
+          "label": "112s@160bpm89rpm",
+          "duration_secs": 112,
+          "avg_hr": 160,
+          "max_hr": 161,
+          "avg_cadence": 89.32143,
+          "zone": 3
+        }
+      ]
+    }
+  ]
+}
