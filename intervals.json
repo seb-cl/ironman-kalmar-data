@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-24T22:28:22.699577",
+  "generated_at": "2026-04-25T05:31:00.788050",
   "version": "3.106",
   "script_hash": "f323f1d6d720",
   "scan_hours": 72,
@@ -69,6 +69,74 @@
           "max_hr": 161,
           "avg_cadence": 89.32143,
           "zone": 3
+        }
+      ]
+    },
+    {
+      "activity_id": "i142692744",
+      "date": "2026-04-25",
+      "type": "Ride",
+      "name": "Tabanan Road Cycling",
+      "interval_summary": [
+        "4x 12m37s 127bpm",
+        "1x 9m43s 126bpm",
+        "1x 14m52s 131bpm"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "757s@127bpm",
+          "duration_secs": 801,
+          "avg_hr": 125,
+          "max_hr": 147,
+          "zone": 1
+        },
+        {
+          "type": "RECOVERY",
+          "duration_secs": 1,
+          "avg_hr": 144,
+          "max_hr": 144,
+          "zone": 2
+        },
+        {
+          "type": "WORK",
+          "label": "583s@126bpm",
+          "duration_secs": 583,
+          "avg_hr": 126,
+          "max_hr": 150,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "757s@127bpm",
+          "duration_secs": 714,
+          "avg_hr": 128,
+          "max_hr": 162,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "892s@131bpm",
+          "duration_secs": 892,
+          "avg_hr": 131,
+          "max_hr": 151,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "757s@127bpm",
+          "duration_secs": 726,
+          "avg_hr": 123,
+          "max_hr": 140,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "757s@127bpm",
+          "duration_secs": 785,
+          "avg_hr": 131,
+          "max_hr": 154,
+          "zone": 1
         }
       ]
     }
