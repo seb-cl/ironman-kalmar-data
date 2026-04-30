@@ -76,7 +76,7 @@ jobs:
               exit 1
             }
       
-    - name: Run sessions archive
+      - name: Run sessions archive
         env:
           INTERVALS_ATHLETE_ID: ${{ secrets.ATHLETE_ID }}
           INTERVALS_API_KEY: ${{ secrets.INTERVALS_KEY }}
