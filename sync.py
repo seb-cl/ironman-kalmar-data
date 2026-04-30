@@ -5685,22 +5685,25 @@ class IntervalsSync:
     def should_generate_history(self) -> bool:
         """
         Determine if history.json needs to be (re)generated.
-        
+
         Triggers:
         - history.json missing → ALWAYS generate (bypass time gate, first-run scenario)
+        - sync.py script_hash changed → regenerate
+        - data_range.latest > 1 day behind today → regenerate (capped to once per 12h
+          to avoid running on every 15-min sync)
         - history.json >28 days old → regenerate (time-gated to Sun/Mon midnight)
-        
-        Refresh runs only on Sundays (6) or Mondays (0), in the first two runs
-        after midnight (00:00 and 00:15 UTC).
+
+        Monthly refresh runs only on Sundays (6) or Mondays (0), in the first two
+        runs after midnight (00:00 and 00:15 UTC).
         """
         history_path = self.data_dir / self.HISTORY_FILE
-        
+
         # If history.json doesn't exist, ALWAYS generate (bypass time gate)
         if not history_path.exists():
             if self.debug:
                 print("  history.json missing — will generate (first run)")
             return True
-        
+
         # If sync.py changed, regenerate regardless of time gate
         try:
             with open(history_path, 'r') as f:
@@ -5711,7 +5714,32 @@ class IntervalsSync:
                 return True
         except Exception:
             return True
-        
+
+        # Stale-data check: if data_range.latest is more than 1 day behind today,
+        # regenerate — but cap to once every 12h so we don't churn on every 15-min run.
+        try:
+            latest_str = history_data.get("data_range", {}).get("latest", "")
+            generated_at_str = history_data.get("generated_at", "")
+            if latest_str and generated_at_str:
+                latest_date = datetime.fromisoformat(latest_str).date()
+                today_date = datetime.now().date()
+                days_stale = (today_date - latest_date).days
+                gen_dt = datetime.fromisoformat(
+                    generated_at_str.replace("Z", "+00:00")
+                ).replace(tzinfo=None)
+                hours_since_gen = (datetime.now() - gen_dt).total_seconds() / 3600
+                if days_stale > 1 and hours_since_gen >= 12:
+                    if self.debug:
+                        print(
+                            f"  history.json data is stale "
+                            f"(latest: {latest_str}, {days_stale}d behind) "
+                            f"— will regenerate"
+                        )
+                    return True
+        except Exception as e:
+            if self.debug:
+                print(f"  Could not check history data freshness: {e}")
+
         # For REFRESH of existing history, apply the time gate
         now = datetime.now()
         
