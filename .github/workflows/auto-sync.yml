@@ -76,6 +76,18 @@ jobs:
               exit 1
             }
       
+      - name: Run sessions archive
+        env:
+          ATHLETE_ID: ${{ secrets.ATHLETE_ID }}
+          INTERVALS_KEY: ${{ secrets.INTERVALS_KEY }}
+        run: |
+          if [ ! -f sessions_archive.py ]; then
+            echo "❌ ERROR: sessions_archive.py not found!"
+            exit 1
+          fi
+          echo "🚀 Running sessions archive script..."
+          python sessions_archive.py
+      
       - name: Verify latest.json was created/updated
         run: |
           if [ -f latest.json ]; then
