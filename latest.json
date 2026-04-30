@@ -70,7 +70,7 @@
   },
   "metadata": {
     "athlete_id": "REDACTED",
-    "last_updated": "2026-04-30T14:26:46.086831",
+    "last_updated": "2026-04-30T14:57:49.664557",
     "data_range_days": 7,
     "extended_range_days": 28,
     "version": "3.106"
@@ -135,7 +135,7 @@
       "unavailable": 0
     },
     "phase_context": {
-      "phase": "Base",
+      "phase": "Recovery",
       "phase_week": 1,
       "amber_threshold": 2,
       "modifier_applied": "default"
@@ -146,9 +146,11 @@
     "alarm_refs": []
   },
   "history": {
-    "available": false,
-    "history_confidence": "low",
-    "note": "No history.json available. Longitudinal analysis limited to current 28-day window."
+    "available": true,
+    "last_generated": "2026-04-30",
+    "age_days": 0,
+    "total_months": 2,
+    "history_confidence": "low"
   },
   "summary": {
     "period_description": "Last 7 days of training (including today)",
@@ -578,12 +580,14 @@
       ]
     },
     "phase_detection": {
-      "phase": "Base",
+      "phase": "Recovery",
       "confidence": "medium",
-      "reason_codes": [],
+      "reason_codes": [
+        "DECLINING_LOAD_NO_HARD_DAYS"
+      ],
       "basis": {
         "stream_1": {
-          "ctl_slope": null,
+          "ctl_slope": -1.05,
           "acwr_trend": null,
           "hard_day_pattern": 0,
           "weeks_available": 4
@@ -601,13 +605,15 @@
         "data_quality": "good",
         "stream_agreement": null
       },
-      "previous_phase": null,
+      "previous_phase": "Base",
       "phase_duration_weeks": 1,
       "dossier_declared": null,
       "dossier_agreement": null
     },
-    "phase_detected": "Base",
-    "phase_triggers": [],
+    "phase_detected": "Recovery",
+    "phase_triggers": [
+      "DECLINING_LOAD_NO_HARD_DAYS"
+    ],
     "seasonal_context": "Late Base / Build",
     "benchmark_indoor": {
       "current_ftp": null,
@@ -629,7 +635,7 @@
     "p_max": 413,
     "power_model_source": "wellness.sportInfo",
     "vo2max": null,
-    "calculation_timestamp": "2026-04-30T14:26:46.086678",
+    "calculation_timestamp": "2026-04-30T14:57:49.663670",
     "data_quality": {
       "hrv_data_points": 7,
       "rhr_data_points": 7,
@@ -780,7 +786,7 @@
       "id": "i142692744",
       "date": "2026-04-25T06:34:08",
       "type": "Ride",
-      "name": "Tabanan Road Cycling",
+      "name": "Morning Ride",
       "duration_hours": 1.19,
       "distance_km": 29.46,
       "tss": 42,
@@ -831,7 +837,7 @@
       "id": "i142412886",
       "date": "2026-04-24T06:23:17",
       "type": "Run",
-      "name": "Badung - Aerobic Endurance Run",
+      "name": "Morning Run",
       "duration_hours": 0.55,
       "distance_km": 5.33,
       "tss": 31,
