@@ -70,7 +70,7 @@
   },
   "metadata": {
     "athlete_id": "REDACTED",
-    "last_updated": "2026-06-09T02:45:41.206114",
+    "last_updated": "2026-06-09T06:40:30.672514",
     "data_range_days": 7,
     "extended_range_days": 28,
     "version": "3.106"
@@ -139,20 +139,20 @@
       "unavailable": 0
     },
     "phase_context": {
-      "phase": "Build",
-      "phase_week": 1,
-      "amber_threshold": 3,
-      "modifier_applied": "build_loosened"
+      "phase": "Base",
+      "phase_week": 4,
+      "amber_threshold": 2,
+      "modifier_applied": "default"
     },
     "race_week_defers": false,
     "modification": null,
-    "reason": "P3 green light. 6 green, 0 amber (threshold 3), 0 red.",
+    "reason": "P3 green light. 6 green, 0 amber (threshold 2), 0 red.",
     "alarm_refs": []
   },
   "history": {
     "available": true,
-    "last_generated": "2026-06-07",
-    "age_days": 1,
+    "last_generated": "2026-06-09",
+    "age_days": 0,
     "total_months": 1,
     "history_confidence": "low"
   },
@@ -544,7 +544,7 @@
       "completed_dates": []
     },
     "phase_detection": {
-      "phase": "Build",
+      "phase": "Base",
       "confidence": "medium",
       "reason_codes": [],
       "basis": {
@@ -567,12 +567,12 @@
         "data_quality": "good",
         "stream_agreement": null
       },
-      "previous_phase": null,
-      "phase_duration_weeks": 1,
+      "previous_phase": "Base",
+      "phase_duration_weeks": 4,
       "dossier_declared": null,
       "dossier_agreement": null
     },
-    "phase_detected": "Build",
+    "phase_detected": "Base",
     "phase_triggers": [],
     "seasonal_context": "Build / Early Race Season",
     "benchmark_indoor": {
@@ -595,7 +595,7 @@
     "p_max": 337,
     "power_model_source": "wellness.sportInfo",
     "vo2max": null,
-    "calculation_timestamp": "2026-06-09T02:45:41.205241",
+    "calculation_timestamp": "2026-06-09T06:40:30.671625",
     "data_quality": {
       "hrv_data_points": 7,
       "rhr_data_points": 7,
