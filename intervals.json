@@ -1,67 +1,10 @@
 {
-  "generated_at": "2026-06-24T23:47:36.247144",
+  "generated_at": "2026-06-25T02:26:41.001648",
   "version": "3.106",
   "script_hash": "5c3141dff1ad",
   "scan_hours": 72,
   "retention_days": 14,
   "activities": [
-    {
-      "activity_id": "i155911392",
-      "date": "2026-06-10",
-      "type": "Run",
-      "name": "Badung - No Let Up",
-      "interval_summary": [
-        "1x 5m1s 125bpm",
-        "2x 3m3s 147bpm",
-        "1x 2m 145bpm"
-      ],
-      "intervals": [
-        {
-          "type": "WORK",
-          "label": "301s@125bpm83rpm",
-          "duration_secs": 301,
-          "avg_hr": 125,
-          "max_hr": 139,
-          "avg_cadence": 83.45847,
-          "zone": 1
-        },
-        {
-          "type": "WORK",
-          "label": "183s@147bpm87rpm",
-          "duration_secs": 180,
-          "avg_hr": 140,
-          "max_hr": 153,
-          "avg_cadence": 85.727776,
-          "zone": 1
-        },
-        {
-          "type": "WORK",
-          "label": "120s@145bpm85rpm",
-          "duration_secs": 120,
-          "avg_hr": 145,
-          "max_hr": 154,
-          "avg_cadence": 85.416664,
-          "zone": 1
-        },
-        {
-          "type": "RECOVERY",
-          "duration_secs": 180,
-          "avg_hr": 137,
-          "max_hr": 146,
-          "avg_cadence": 81.57222,
-          "zone": 1
-        },
-        {
-          "type": "WORK",
-          "label": "183s@147bpm87rpm",
-          "duration_secs": 186,
-          "avg_hr": 153,
-          "max_hr": 160,
-          "avg_cadence": 87.89247,
-          "zone": 2
-        }
-      ]
-    },
     {
       "activity_id": "i156589058",
       "date": "2026-06-12",
