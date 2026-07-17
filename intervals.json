@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-17T18:31:02.618037",
+  "generated_at": "2026-07-17T19:44:09.589974",
   "version": "3.106",
   "script_hash": "5c3141dff1ad",
   "scan_hours": 72,
@@ -1192,6 +1192,73 @@
           "avg_hr": 150,
           "max_hr": 150,
           "avg_cadence": 88.0,
+          "zone": 2
+        }
+      ]
+    },
+    {
+      "activity_id": "i166695662",
+      "date": "2026-07-17",
+      "type": "Run",
+      "name": "Bad Lausick Running",
+      "interval_summary": [
+        "4x 6m28s 138bpm",
+        "1x 14m17s 131bpm",
+        "1x 2s 151bpm"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "388s@138bpm85rpm",
+          "duration_secs": 376,
+          "avg_hr": 126,
+          "max_hr": 140,
+          "avg_cadence": 83.19681,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "857s@131bpm83rpm",
+          "duration_secs": 857,
+          "avg_hr": 131,
+          "max_hr": 145,
+          "avg_cadence": 82.653114,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "388s@138bpm85rpm",
+          "duration_secs": 387,
+          "avg_hr": 141,
+          "max_hr": 153,
+          "avg_cadence": 84.41344,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "388s@138bpm85rpm",
+          "duration_secs": 391,
+          "avg_hr": 136,
+          "max_hr": 150,
+          "avg_cadence": 86.66241,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "388s@138bpm85rpm",
+          "duration_secs": 397,
+          "avg_hr": 149,
+          "max_hr": 155,
+          "avg_cadence": 87.43577,
+          "zone": 2
+        },
+        {
+          "type": "WORK",
+          "label": "2s@151bpm85rpm",
+          "duration_secs": 2,
+          "avg_hr": 151,
+          "max_hr": 151,
+          "avg_cadence": 85.0,
           "zone": 2
         }
       ]
