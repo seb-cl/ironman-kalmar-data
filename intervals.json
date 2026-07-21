@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-21T12:50:51.010986",
+  "generated_at": "2026-07-21T14:55:06.396017",
   "version": "3.106",
   "script_hash": "5c3141dff1ad",
   "scan_hours": 72,
@@ -1229,6 +1229,71 @@
           "zone": 2,
           "training_load": 2.6831696,
           "decoupling": -6.681257
+        }
+      ]
+    },
+    {
+      "activity_id": "i167769798",
+      "date": "2026-07-21",
+      "type": "Run",
+      "name": "Bad Lausick Running",
+      "interval_summary": [
+        "4x 7m2s 139bpm",
+        "1x 3s 139bpm"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "422s@139bpm85rpm",
+          "duration_secs": 425,
+          "avg_hr": 133,
+          "max_hr": 143,
+          "avg_cadence": 84.924706,
+          "zone": 1
+        },
+        {
+          "type": "RECOVERY",
+          "duration_secs": 1,
+          "avg_hr": 131,
+          "max_hr": 131,
+          "avg_cadence": 88.0,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "422s@139bpm85rpm",
+          "duration_secs": 425,
+          "avg_hr": 135,
+          "max_hr": 147,
+          "avg_cadence": 85.37647,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "422s@139bpm85rpm",
+          "duration_secs": 430,
+          "avg_hr": 142,
+          "max_hr": 159,
+          "avg_cadence": 85.297676,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "422s@139bpm85rpm",
+          "duration_secs": 408,
+          "avg_hr": 144,
+          "max_hr": 160,
+          "avg_cadence": 85.44853,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "3s@139bpm85rpm",
+          "duration_secs": 3,
+          "avg_hr": 139,
+          "max_hr": 141,
+          "avg_cadence": 85.333336,
+          "zone": 1
         }
       ]
     }
