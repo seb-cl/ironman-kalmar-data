@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-08-08T05:08:09.451672",
+  "generated_at": "2026-08-08T17:33:01.348856",
   "source": "Intervals.icu API",
   "sync_version": "3.106",
   "script_hash": "5c3141dff1ad",
   "data_range": {
     "earliest": "2026-04-14",
-    "latest": "2026-08-04",
+    "latest": "2026-08-08",
     "total_months": 3
   },
   "ftp_timeline": [
@@ -44,23 +44,27 @@
     {
       "period": "2026-07-13 to 2026-07-16",
       "days_missing": 4
+    },
+    {
+      "period": "2026-08-05 to 2026-08-07",
+      "days_missing": 3
     }
   ],
   "summaries": {
     "90d": {
-      "avg_weekly_tss": 271.0,
-      "avg_weekly_hours": 4.9,
+      "avg_weekly_tss": 284.0,
+      "avg_weekly_hours": 5.1,
       "ctl_start": 2.7,
-      "ctl_end": 45.1,
-      "total_activities": 42,
-      "rest_days": 48,
-      "hard_days": 10
+      "ctl_end": 45.5,
+      "total_activities": 43,
+      "rest_days": 47,
+      "hard_days": 11
     },
     "180d": {
-      "avg_weekly_tss": 214.0,
-      "avg_weekly_hours": 4.0,
+      "avg_weekly_tss": 223.0,
+      "avg_weekly_hours": 4.1,
       "ctl_start": 0.1,
-      "ctl_end": 45.1,
+      "ctl_end": 45.5,
       "weeks_tracked": 26
     }
   },
@@ -3983,22 +3987,22 @@
     },
     {
       "date": "2026-08-08",
-      "total_hours": 0.0,
-      "total_tss": 0,
-      "activity_count": 0,
-      "activity_types": "Rest",
-      "ctl": 45.11861,
-      "atl": 60.120136,
-      "tsb": -15.0,
-      "hrv": null,
-      "rhr": null,
-      "sleep_hours": null,
-      "sleep_formatted": null,
-      "sleep_quality": null,
-      "sleep_score": null,
+      "total_hours": 2.29,
+      "total_tss": 162,
+      "activity_count": 2,
+      "activity_types": "OpenWaterSwim, Ride",
+      "ctl": 45.471535,
+      "atl": 62.11697,
+      "tsb": -16.6,
+      "hrv": 49.05343,
+      "rhr": 49,
+      "sleep_hours": 7.37,
+      "sleep_formatted": "7h22m",
+      "sleep_quality": 1,
+      "sleep_score": 90.0,
       "weight_kg": null,
-      "is_hard_day": null,
-      "intensity_basis": null,
+      "is_hard_day": true,
+      "intensity_basis": "mixed",
       "fatigue": null,
       "soreness": null,
       "stress": null,
@@ -4006,13 +4010,13 @@
       "motivation": null,
       "injury": null,
       "hydration": null,
-      "spO2": null,
+      "spO2": 97.0,
       "blood_glucose": null,
       "systolic": null,
       "diastolic": null,
       "baevsky_si": null,
       "lactate": null,
-      "respiration": null,
+      "respiration": 13.587891,
       "body_fat_pct": null,
       "abdomen_cm": null,
       "steps": null,
@@ -4023,7 +4027,7 @@
       "fat_g": null,
       "menstrual_phase": null,
       "menstrual_phase_predicted": null,
-      "readiness": null
+      "readiness": 94.0
     }
   ],
   "weekly_180d": [
@@ -4852,34 +4856,38 @@
     },
     {
       "week_start": "2026-08-03",
-      "total_hours": 1.36,
-      "total_tss": 33,
-      "primary_sport": "run",
-      "primary_sport_tss": 20.0,
+      "total_hours": 3.64,
+      "total_tss": 195,
+      "primary_sport": "cycling",
+      "primary_sport_tss": 143.0,
       "sport_tss_breakdown": {
-        "run": 20.0
+        "run": 20.0,
+        "cycling": 143.0
       },
-      "activity_count": 2,
-      "ctl_end": 45.1,
-      "atl_end": 60.1,
-      "tsb_end": -15.0,
-      "ramp_rate": -3.27,
-      "avg_hrv": 44.9,
-      "avg_rhr": 51.2,
-      "avg_sleep_hours": 6.82,
-      "z1_z2_pct": 100.0,
-      "z3_pct": 0.0,
-      "z4_plus_pct": 0.0,
-      "hard_days": 0,
-      "longest_ride_hours": 0.85,
+      "activity_count": 4,
+      "ctl_end": 45.5,
+      "atl_end": 62.1,
+      "tsb_end": -16.6,
+      "ramp_rate": -2.92,
+      "avg_hrv": 45.6,
+      "avg_rhr": 50.8,
+      "avg_sleep_hours": 6.91,
+      "z1_z2_pct": 69.1,
+      "z3_pct": 12.1,
+      "z4_plus_pct": 18.8,
+      "hard_days": 1,
+      "longest_ride_hours": 1.87,
       "avg_feel": null,
       "feel_count": 0,
       "avg_rpe": null,
       "rpe_count": 0,
       "weight_kg": null,
-      "monotony": null,
-      "intensity_basis_breakdown": null,
-      "acwr": 0.08,
+      "monotony": 0.51,
+      "intensity_basis_breakdown": {
+        "power": 0,
+        "hr": 0
+      },
+      "acwr": 0.47,
       "phase_detected": null
     }
   ],
