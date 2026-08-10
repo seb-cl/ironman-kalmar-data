@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-08-10T00:58:39.181039",
+  "generated_at": "2026-08-10T14:04:07.427460",
   "source": "Intervals.icu API",
   "sync_version": "3.106",
   "script_hash": "5c3141dff1ad",
   "data_range": {
     "earliest": "2026-04-14",
-    "latest": "2026-08-08",
+    "latest": "2026-08-10",
     "total_months": 3
   },
   "ftp_timeline": [
@@ -52,13 +52,13 @@
   ],
   "summaries": {
     "90d": {
-      "avg_weekly_tss": 283.0,
+      "avg_weekly_tss": 286.0,
       "avg_weekly_hours": 5.1,
       "ctl_start": 2.9,
-      "ctl_end": 43.4,
-      "total_activities": 41,
-      "rest_days": 49,
-      "hard_days": 11
+      "ctl_end": 44.3,
+      "total_activities": 42,
+      "rest_days": 48,
+      "hard_days": 12
     },
     "180d": {
       "avg_weekly_tss": 223.0,
@@ -3987,22 +3987,22 @@
     },
     {
       "date": "2026-08-10",
-      "total_hours": 0.0,
-      "total_tss": 0,
-      "activity_count": 0,
-      "activity_types": "Rest",
-      "ctl": 43.356968,
-      "atl": 46.679493,
-      "tsb": -3.3,
-      "hrv": null,
-      "rhr": null,
-      "sleep_hours": null,
-      "sleep_formatted": null,
-      "sleep_quality": null,
-      "sleep_score": null,
+      "total_hours": 0.55,
+      "total_tss": 41,
+      "activity_count": 2,
+      "activity_types": "Ride",
+      "ctl": 44.32163,
+      "atl": 52.137497,
+      "tsb": -7.8,
+      "hrv": 48.327232,
+      "rhr": 50,
+      "sleep_hours": 7.61,
+      "sleep_formatted": "7h36m",
+      "sleep_quality": 2,
+      "sleep_score": 80.0,
       "weight_kg": null,
-      "is_hard_day": null,
-      "intensity_basis": null,
+      "is_hard_day": true,
+      "intensity_basis": "power",
       "fatigue": null,
       "soreness": null,
       "stress": null,
@@ -4010,13 +4010,13 @@
       "motivation": null,
       "injury": null,
       "hydration": null,
-      "spO2": null,
+      "spO2": 96.0,
       "blood_glucose": null,
       "systolic": null,
       "diastolic": null,
       "baevsky_si": null,
       "lactate": null,
-      "respiration": null,
+      "respiration": 13.828125,
       "body_fat_pct": null,
       "abdomen_cm": null,
       "steps": null,
@@ -4027,7 +4027,7 @@
       "fat_g": null,
       "menstrual_phase": null,
       "menstrual_phase_predicted": null,
-      "readiness": null
+      "readiness": 89.0
     }
   ],
   "weekly_180d": [
