@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-08-24T05:38:22.930584",
+  "generated_at": "2026-08-24T17:54:25.640420",
   "source": "Intervals.icu API",
   "sync_version": "3.106",
   "script_hash": "5c3141dff1ad",
   "data_range": {
     "earliest": "2026-04-14",
-    "latest": "2026-08-15",
+    "latest": "2026-08-24",
     "total_months": 4
   },
   "ftp_timeline": [
@@ -48,16 +48,20 @@
     {
       "period": "2026-08-05 to 2026-08-07",
       "days_missing": 3
+    },
+    {
+      "period": "2026-08-16 to 2026-08-23",
+      "days_missing": 8
     }
   ],
   "summaries": {
     "90d": {
-      "avg_weekly_tss": 333.0,
+      "avg_weekly_tss": 334.0,
       "avg_weekly_hours": 5.9,
       "ctl_start": 4.4,
-      "ctl_end": 45.6,
-      "total_activities": 39,
-      "rest_days": 51,
+      "ctl_end": 46.0,
+      "total_activities": 40,
+      "rest_days": 50,
       "hard_days": 13
     },
     "180d": {
@@ -3987,13 +3991,13 @@
     },
     {
       "date": "2026-08-24",
-      "total_hours": 0.0,
-      "total_tss": 0,
-      "activity_count": 0,
-      "activity_types": "Rest",
-      "ctl": 45.57545,
-      "atl": 33.62815,
-      "tsb": 11.9,
+      "total_hours": 0.37,
+      "total_tss": 16,
+      "activity_count": 1,
+      "activity_types": "Run",
+      "ctl": 45.951904,
+      "atl": 35.758106,
+      "tsb": 10.2,
       "hrv": 36.810257,
       "rhr": 55,
       "sleep_hours": 7.5,
@@ -4001,8 +4005,8 @@
       "sleep_quality": 1,
       "sleep_score": 86.0,
       "weight_kg": null,
-      "is_hard_day": null,
-      "intensity_basis": null,
+      "is_hard_day": false,
+      "intensity_basis": "hr",
       "fatigue": null,
       "soreness": null,
       "stress": null,
