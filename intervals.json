@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T05:38:18.936688",
+  "generated_at": "2026-08-24T06:22:45.027465",
   "version": "3.106",
   "script_hash": "5c3141dff1ad",
   "scan_hours": 72,
@@ -876,6 +876,55 @@
           "max_hr": 163,
           "avg_cadence": 80.12534,
           "zone": 2
+        }
+      ]
+    },
+    {
+      "activity_id": "i179101665",
+      "date": "2026-08-24",
+      "type": "Run",
+      "name": "El Mrouj Running",
+      "interval_summary": [
+        "1x 6m20s 125bpm",
+        "2x 6m59s 141bpm",
+        "1x 1m55s 144bpm"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "380s@125bpm86rpm",
+          "duration_secs": 380,
+          "avg_hr": 125,
+          "max_hr": 143,
+          "avg_cadence": 85.91053,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "419s@141bpm83rpm",
+          "duration_secs": 420,
+          "avg_hr": 141,
+          "max_hr": 168,
+          "avg_cadence": 82.933334,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "419s@141bpm83rpm",
+          "duration_secs": 418,
+          "avg_hr": 140,
+          "max_hr": 148,
+          "avg_cadence": 84.045456,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "115s@144bpm84rpm",
+          "duration_secs": 115,
+          "avg_hr": 144,
+          "max_hr": 155,
+          "avg_cadence": 83.94782,
+          "zone": 1
         }
       ]
     }
