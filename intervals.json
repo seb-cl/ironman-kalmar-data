@@ -1,74 +1,10 @@
 {
-  "generated_at": "2026-08-26T23:51:18.581924",
+  "generated_at": "2026-08-27T05:46:21.612360",
   "version": "3.106",
   "script_hash": "5c3141dff1ad",
   "scan_hours": 72,
   "retention_days": 14,
   "activities": [
-    {
-      "activity_id": "i175013288",
-      "date": "2026-08-12",
-      "type": "Run",
-      "name": "Kalmar - Easy Run",
-      "interval_summary": [
-        "3x 6m29s 139bpm",
-        "1x 5m32s 146bpm"
-      ],
-      "intervals": [
-        {
-          "type": "WORK",
-          "label": "389s@139bpm87rpm",
-          "duration_secs": 388,
-          "avg_hr": 131,
-          "max_hr": 145,
-          "avg_cadence": 85.61598,
-          "zone": 1
-        },
-        {
-          "type": "RECOVERY",
-          "duration_secs": 1,
-          "avg_hr": 144,
-          "max_hr": 144,
-          "avg_cadence": 89.0,
-          "zone": 1
-        },
-        {
-          "type": "WORK",
-          "label": "389s@139bpm87rpm",
-          "duration_secs": 388,
-          "avg_hr": 142,
-          "max_hr": 153,
-          "avg_cadence": 88.0,
-          "zone": 1
-        },
-        {
-          "type": "WORK",
-          "label": "389s@139bpm87rpm",
-          "duration_secs": 392,
-          "avg_hr": 143,
-          "max_hr": 151,
-          "avg_cadence": 87.89286,
-          "zone": 1
-        },
-        {
-          "type": "WORK",
-          "label": "332s@146bpm87rpm",
-          "duration_secs": 332,
-          "avg_hr": 146,
-          "max_hr": 151,
-          "avg_cadence": 87.45482,
-          "zone": 1
-        },
-        {
-          "type": "RECOVERY",
-          "duration_secs": 1,
-          "avg_hr": 146,
-          "max_hr": 146,
-          "avg_cadence": 89.0,
-          "zone": 1
-        }
-      ]
-    },
     {
       "activity_id": "i176235922",
       "date": "2026-08-15",
