@@ -1,59 +1,10 @@
 {
-  "generated_at": "2026-09-07T21:59:54.147835",
+  "generated_at": "2026-09-08T00:03:10.543626",
   "version": "3.106",
   "script_hash": "5c3141dff1ad",
   "scan_hours": 72,
   "retention_days": 14,
   "activities": [
-    {
-      "activity_id": "i179101665",
-      "date": "2026-08-24",
-      "type": "Run",
-      "name": "El Mrouj Running",
-      "interval_summary": [
-        "1x 6m20s 125bpm",
-        "2x 6m59s 141bpm",
-        "1x 1m55s 144bpm"
-      ],
-      "intervals": [
-        {
-          "type": "WORK",
-          "label": "380s@125bpm86rpm",
-          "duration_secs": 380,
-          "avg_hr": 125,
-          "max_hr": 143,
-          "avg_cadence": 85.91053,
-          "zone": 1
-        },
-        {
-          "type": "WORK",
-          "label": "419s@141bpm83rpm",
-          "duration_secs": 420,
-          "avg_hr": 141,
-          "max_hr": 168,
-          "avg_cadence": 82.933334,
-          "zone": 1
-        },
-        {
-          "type": "WORK",
-          "label": "419s@141bpm83rpm",
-          "duration_secs": 418,
-          "avg_hr": 140,
-          "max_hr": 148,
-          "avg_cadence": 84.045456,
-          "zone": 1
-        },
-        {
-          "type": "WORK",
-          "label": "115s@144bpm84rpm",
-          "duration_secs": 115,
-          "avg_hr": 144,
-          "max_hr": 155,
-          "avg_cadence": 83.94782,
-          "zone": 1
-        }
-      ]
-    },
     {
       "activity_id": "i183338365",
       "date": "2026-09-04",
