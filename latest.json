@@ -70,7 +70,7 @@
   },
   "metadata": {
     "athlete_id": "REDACTED",
-    "last_updated": "2026-10-04T00:01:30.393666",
+    "last_updated": "2026-10-04T05:46:17.494741",
     "data_range_days": 7,
     "extended_range_days": 28,
     "version": "3.106"
@@ -156,8 +156,8 @@
   },
   "history": {
     "available": true,
-    "last_generated": "2026-10-02",
-    "age_days": 1,
+    "last_generated": "2026-10-04",
+    "age_days": 0,
     "total_months": 5,
     "history_confidence": "medium"
   },
@@ -223,7 +223,7 @@
       }
     },
     "current_metrics": {
-      "weight_kg": 81.8,
+      "weight_kg": 81.3,
       "resting_hr": 54,
       "hrv": 39.13854,
       "sleep_quality": 2,
@@ -244,7 +244,7 @@
       "baevsky_si": null,
       "lactate": null,
       "respiration": 13.2421875,
-      "body_fat_pct": null,
+      "body_fat_pct": 20.8,
       "abdomen_cm": null,
       "steps": null,
       "hydration_volume_l": null,
@@ -435,7 +435,7 @@
           "start": "2026-08-24",
           "end": "2026-10-04"
         },
-        "weight_kg": 81.8,
+        "weight_kg": 81.3,
         "weight_source": "wellness_recent",
         "cycling": {
           "anchors": null,
@@ -508,7 +508,7 @@
     "p_max": 556,
     "power_model_source": "wellness.sportInfo",
     "vo2max": null,
-    "calculation_timestamp": "2026-10-04T00:01:30.392734",
+    "calculation_timestamp": "2026-10-04T05:46:17.493819",
     "data_quality": {
       "hrv_data_points": 7,
       "rhr_data_points": 7,
@@ -1435,7 +1435,7 @@
     },
     {
       "date": "2026-10-03",
-      "weight_kg": null,
+      "weight_kg": 81.9,
       "resting_hr": 51,
       "hrv_rmssd": 43.29063,
       "hrv_sdnn": null,
@@ -1463,7 +1463,7 @@
       "body_fat_pct": null,
       "abdomen_cm": null,
       "steps": null,
-      "hydration_volume_l": null,
+      "hydration_volume_l": 2.163,
       "kcal_consumed": null,
       "carbohydrates_g": null,
       "protein_g": null,
@@ -1474,7 +1474,7 @@
     },
     {
       "date": "2026-10-04",
-      "weight_kg": null,
+      "weight_kg": 81.3,
       "resting_hr": 54,
       "hrv_rmssd": 39.13854,
       "hrv_sdnn": null,
@@ -1499,7 +1499,7 @@
       "baevsky_si": null,
       "lactate": null,
       "respiration": 13.2421875,
-      "body_fat_pct": null,
+      "body_fat_pct": 20.8,
       "abdomen_cm": null,
       "steps": null,
       "hydration_volume_l": null,
