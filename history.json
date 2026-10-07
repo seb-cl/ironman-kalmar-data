@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-10-07T00:07:17.494998",
+  "generated_at": "2026-10-07T12:18:20.233286",
   "source": "Intervals.icu API",
   "sync_version": "3.106",
   "script_hash": "5c3141dff1ad",
   "data_range": {
     "earliest": "2026-04-14",
-    "latest": "2026-10-03",
+    "latest": "2026-10-07",
     "total_months": 5
   },
   "ftp_timeline": [
@@ -68,21 +68,25 @@
     {
       "period": "2026-09-25 to 2026-09-28",
       "days_missing": 4
+    },
+    {
+      "period": "2026-10-04 to 2026-10-06",
+      "days_missing": 3
     }
   ],
   "summaries": {
     "90d": {
-      "avg_weekly_tss": 231.0,
-      "avg_weekly_hours": 4.1,
+      "avg_weekly_tss": 232.0,
+      "avg_weekly_hours": 4.2,
       "ctl_start": 28.0,
       "ctl_end": 20.5,
-      "total_activities": 30,
-      "rest_days": 60,
+      "total_activities": 31,
+      "rest_days": 59,
       "hard_days": 9
     },
     "180d": {
-      "avg_weekly_tss": 213.0,
-      "avg_weekly_hours": 4.1,
+      "avg_weekly_tss": 204.0,
+      "avg_weekly_hours": 3.9,
       "ctl_start": 0.1,
       "ctl_end": 20.5,
       "weeks_tracked": 27
@@ -4007,22 +4011,22 @@
     },
     {
       "date": "2026-10-07",
-      "total_hours": 0.0,
-      "total_tss": 0,
-      "activity_count": 0,
-      "activity_types": "Rest",
+      "total_hours": 0.87,
+      "total_tss": 13,
+      "activity_count": 1,
+      "activity_types": "WeightTraining",
       "ctl": 20.48356,
-      "atl": 9.13677,
-      "tsb": 11.3,
-      "hrv": 39.839417,
+      "atl": 10.867357,
+      "tsb": 9.6,
+      "hrv": 40.458702,
       "rhr": null,
       "sleep_hours": null,
       "sleep_formatted": null,
       "sleep_quality": null,
       "sleep_score": null,
       "weight_kg": null,
-      "is_hard_day": null,
-      "intensity_basis": null,
+      "is_hard_day": false,
+      "intensity_basis": "hr",
       "fatigue": null,
       "soreness": null,
       "stress": null,
@@ -4047,7 +4051,7 @@
       "fat_g": null,
       "menstrual_phase": null,
       "menstrual_phase_predicted": null,
-      "readiness": 58.0
+      "readiness": 61.0
     }
   ],
   "weekly_180d": [
@@ -4931,24 +4935,26 @@
     },
     {
       "week_start": "2026-10-05",
-      "total_hours": 0.0,
-      "total_tss": 0,
-      "primary_sport": null,
-      "primary_sport_tss": null,
-      "sport_tss_breakdown": null,
-      "activity_count": 0,
+      "total_hours": 0.87,
+      "total_tss": 13,
+      "primary_sport": "strength",
+      "primary_sport_tss": 13.0,
+      "sport_tss_breakdown": {
+        "strength": 13.0
+      },
+      "activity_count": 1,
       "ctl_end": 20.5,
-      "atl_end": 9.1,
-      "tsb_end": 11.3,
+      "atl_end": 10.9,
+      "tsb_end": 9.6,
       "ramp_rate": -3.08,
-      "avg_hrv": 45.6,
+      "avg_hrv": 45.8,
       "avg_rhr": null,
       "avg_sleep_hours": null,
-      "z1_z2_pct": null,
-      "z3_pct": null,
-      "z4_plus_pct": null,
+      "z1_z2_pct": 100.0,
+      "z3_pct": 0.0,
+      "z4_plus_pct": 0.0,
       "hard_days": 0,
-      "longest_ride_hours": 0.0,
+      "longest_ride_hours": 0.87,
       "avg_feel": null,
       "feel_count": 0,
       "avg_rpe": null,
@@ -4956,7 +4962,7 @@
       "weight_kg": null,
       "monotony": null,
       "intensity_basis_breakdown": null,
-      "acwr": 0.0,
+      "acwr": 0.14,
       "phase_detected": null
     }
   ],
