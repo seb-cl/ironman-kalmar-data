@@ -1,86 +1,10 @@
 {
-  "generated_at": "2026-10-07T23:30:10.718272",
+  "generated_at": "2026-10-08T02:50:31.984158",
   "version": "3.106",
   "script_hash": "5c3141dff1ad",
   "scan_hours": 72,
   "retention_days": 14,
   "activities": [
-    {
-      "activity_id": "i189515649",
-      "date": "2026-09-23",
-      "type": "Run",
-      "name": "Badung Running",
-      "interval_summary": [
-        "1x 7m15s 124bpm",
-        "5x 6m23s 143bpm",
-        "1x 1s 144bpm"
-      ],
-      "intervals": [
-        {
-          "type": "WORK",
-          "label": "435s@124bpm83rpm",
-          "duration_secs": 435,
-          "avg_hr": 124,
-          "max_hr": 142,
-          "avg_cadence": 83.0115,
-          "zone": 1
-        },
-        {
-          "type": "WORK",
-          "label": "383s@143bpm80rpm",
-          "duration_secs": 378,
-          "avg_hr": 143,
-          "max_hr": 151,
-          "avg_cadence": 80.31481,
-          "zone": 1
-        },
-        {
-          "type": "WORK",
-          "label": "383s@143bpm80rpm",
-          "duration_secs": 405,
-          "avg_hr": 144,
-          "max_hr": 154,
-          "avg_cadence": 79.118515,
-          "zone": 1
-        },
-        {
-          "type": "WORK",
-          "label": "383s@143bpm80rpm",
-          "duration_secs": 383,
-          "avg_hr": 143,
-          "max_hr": 150,
-          "avg_cadence": 80.255875,
-          "zone": 1
-        },
-        {
-          "type": "WORK",
-          "label": "383s@143bpm80rpm",
-          "duration_secs": 373,
-          "avg_hr": 143,
-          "max_hr": 151,
-          "avg_cadence": 80.17694,
-          "zone": 1
-        },
-        {
-          "type": "WORK",
-          "label": "383s@143bpm80rpm",
-          "duration_secs": 377,
-          "avg_hr": 144,
-          "max_hr": 152,
-          "avg_cadence": 80.75066,
-          "zone": 1
-        },
-        {
-          "type": "WORK",
-          "label": "1s@144bpm81rpm",
-          "duration_secs": 1,
-          "avg_hr": 144,
-          "max_hr": 144,
-          "avg_cadence": 81.0,
-          "zone": 1
-        }
-      ]
-    },
     {
       "activity_id": "i191369858",
       "date": "2026-09-29",
@@ -328,6 +252,32 @@
           "avg_hr": 140,
           "max_hr": 140,
           "avg_cadence": 81.0,
+          "zone": 1
+        }
+      ]
+    },
+    {
+      "activity_id": "i194886490",
+      "date": "2026-10-08",
+      "type": "Ride",
+      "name": "Badung Road Cycling",
+      "interval_summary": [
+        "1x 1h47m 124bpm"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "6429s@124bpm",
+          "duration_secs": 6429,
+          "avg_hr": 124,
+          "max_hr": 156,
+          "zone": 1
+        },
+        {
+          "type": "RECOVERY",
+          "duration_secs": 1,
+          "avg_hr": 120,
+          "max_hr": 120,
           "zone": 1
         }
       ]
