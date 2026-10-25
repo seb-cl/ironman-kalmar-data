@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T06:24:36.533261",
+  "generated_at": "2026-10-25T11:51:38.387641",
   "version": "3.106",
   "script_hash": "5c3141dff1ad",
   "scan_hours": 72,
@@ -144,6 +144,157 @@
           "max_hr": 172,
           "avg_cadence": 82.0,
           "zone": 4
+        }
+      ]
+    },
+    {
+      "activity_id": "i201351273",
+      "date": "2026-10-25",
+      "type": "Run",
+      "name": "Tabanan Running",
+      "interval_summary": [
+        "2x 8m10s 163bpm",
+        "1x 18m8s 162bpm",
+        "1x 5m52s 167bpm",
+        "1x 61s 173bpm"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "490s@163bpm78rpm",
+          "duration_secs": 511,
+          "avg_hr": 162,
+          "max_hr": 176,
+          "avg_cadence": 76.85714,
+          "zone": 3
+        },
+        {
+          "type": "WORK",
+          "label": "490s@163bpm78rpm",
+          "duration_secs": 468,
+          "avg_hr": 163,
+          "max_hr": 175,
+          "avg_cadence": 79.05069,
+          "zone": 3
+        },
+        {
+          "type": "WORK",
+          "label": "1088s@162bpm79rpm",
+          "duration_secs": 1088,
+          "avg_hr": 162,
+          "max_hr": 176,
+          "avg_cadence": 79.035355,
+          "zone": 3
+        },
+        {
+          "type": "WORK",
+          "label": "352s@167bpm80rpm",
+          "duration_secs": 352,
+          "avg_hr": 167,
+          "max_hr": 176,
+          "avg_cadence": 80.35227,
+          "zone": 4
+        },
+        {
+          "type": "WORK",
+          "label": "61s@173bpm80rpm",
+          "duration_secs": 61,
+          "avg_hr": 173,
+          "max_hr": 177,
+          "avg_cadence": 79.7377,
+          "zone": 5
+        }
+      ]
+    },
+    {
+      "activity_id": "i201351247",
+      "date": "2026-10-25",
+      "type": "Run",
+      "name": "Badung Running",
+      "interval_summary": [
+        "5x 5m39s 157bpm",
+        "3x 6m37s 167bpm"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "339s@157bpm82rpm",
+          "duration_secs": 363,
+          "avg_hr": 145,
+          "max_hr": 160,
+          "avg_cadence": 81.61708,
+          "zone": 1
+        },
+        {
+          "type": "RECOVERY",
+          "duration_secs": 1,
+          "avg_hr": 156,
+          "max_hr": 156,
+          "avg_cadence": 83.0,
+          "zone": 3
+        },
+        {
+          "type": "WORK",
+          "label": "339s@157bpm82rpm",
+          "duration_secs": 338,
+          "avg_hr": 154,
+          "max_hr": 162,
+          "avg_cadence": 83.41124,
+          "zone": 2
+        },
+        {
+          "type": "WORK",
+          "label": "339s@157bpm82rpm",
+          "duration_secs": 339,
+          "avg_hr": 162,
+          "max_hr": 167,
+          "avg_cadence": 82.86136,
+          "zone": 3
+        },
+        {
+          "type": "WORK",
+          "label": "339s@157bpm82rpm",
+          "duration_secs": 341,
+          "avg_hr": 165,
+          "max_hr": 174,
+          "avg_cadence": 82.29619,
+          "zone": 4
+        },
+        {
+          "type": "WORK",
+          "label": "397s@167bpm81rpm",
+          "duration_secs": 412,
+          "avg_hr": 163,
+          "max_hr": 174,
+          "avg_cadence": 82.434784,
+          "zone": 3
+        },
+        {
+          "type": "WORK",
+          "label": "397s@167bpm81rpm",
+          "duration_secs": 391,
+          "avg_hr": 167,
+          "max_hr": 175,
+          "avg_cadence": 81.23011,
+          "zone": 4
+        },
+        {
+          "type": "WORK",
+          "label": "397s@167bpm81rpm",
+          "duration_secs": 389,
+          "avg_hr": 170,
+          "max_hr": 178,
+          "avg_cadence": 79.70694,
+          "zone": 4
+        },
+        {
+          "type": "WORK",
+          "label": "339s@157bpm82rpm",
+          "duration_secs": 313,
+          "avg_hr": 158,
+          "max_hr": 167,
+          "avg_cadence": 77.85202,
+          "zone": 3
         }
       ]
     }
