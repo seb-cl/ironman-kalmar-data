@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-27T01:49:01.254372",
+  "generated_at": "2026-10-27T18:40:00.381152",
   "source": "Intervals.icu API",
   "sync_version": "3.106",
   "script_hash": "5c3141dff1ad",
@@ -4028,7 +4028,7 @@
       "ctl": 16.820381,
       "atl": 15.848956,
       "tsb": 1.0,
-      "hrv": null,
+      "hrv": 45.93648,
       "rhr": null,
       "sleep_hours": null,
       "sleep_formatted": null,
@@ -4061,7 +4061,7 @@
       "fat_g": null,
       "menstrual_phase": null,
       "menstrual_phase_predicted": null,
-      "readiness": null
+      "readiness": 79.0
     }
   ],
   "weekly_180d": [
@@ -4964,7 +4964,7 @@
       "atl_end": 15.8,
       "tsb_end": 1.0,
       "ramp_rate": 0.43,
-      "avg_hrv": 41.6,
+      "avg_hrv": 43.8,
       "avg_rhr": null,
       "avg_sleep_hours": null,
       "z1_z2_pct": null,
