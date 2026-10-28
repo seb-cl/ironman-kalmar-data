@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-28T01:41:30.294885",
+  "generated_at": "2026-10-28T07:24:07.180122",
   "version": "3.106",
   "script_hash": "5c3141dff1ad",
   "scan_hours": 72,
@@ -220,6 +220,54 @@
           "max_hr": 167,
           "avg_cadence": 77.85202,
           "zone": 3
+        }
+      ]
+    },
+    {
+      "activity_id": "i202567889",
+      "date": "2026-10-26",
+      "type": "Run",
+      "name": "Badung Running",
+      "interval_summary": [
+        "3x 7m22s 138bpm",
+        "1x 1s 146bpm"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "442s@138bpm80rpm",
+          "duration_secs": 452,
+          "avg_hr": 130,
+          "max_hr": 147,
+          "avg_cadence": 80.45354,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "442s@138bpm80rpm",
+          "duration_secs": 441,
+          "avg_hr": 141,
+          "max_hr": 151,
+          "avg_cadence": 80.333336,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "442s@138bpm80rpm",
+          "duration_secs": 433,
+          "avg_hr": 142,
+          "max_hr": 153,
+          "avg_cadence": 80.032486,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "1s@146bpm80rpm",
+          "duration_secs": 1,
+          "avg_hr": 146,
+          "max_hr": 146,
+          "avg_cadence": 80.0,
+          "zone": 1
         }
       ]
     }
