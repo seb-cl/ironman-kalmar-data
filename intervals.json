@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-31T07:44:00.056467",
+  "generated_at": "2026-10-31T13:53:54.193388",
   "version": "3.106",
   "script_hash": "5c3141dff1ad",
   "scan_hours": 72,
@@ -386,6 +386,25 @@
           "duration_secs": 1,
           "avg_hr": 122,
           "max_hr": 122,
+          "zone": 1
+        }
+      ]
+    },
+    {
+      "activity_id": "i203892123",
+      "date": "2026-10-31",
+      "type": "VirtualRun",
+      "name": "Zwift - Lightning Lap Run in Watopia",
+      "interval_summary": [
+        "1x 22m5s 127bpm"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "1325s@127bpm",
+          "duration_secs": 1325,
+          "avg_hr": 127,
+          "max_hr": 144,
           "zone": 1
         }
       ]
