@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-30T22:43:18.014713",
+  "generated_at": "2026-10-31T01:49:53.356462",
   "version": "3.106",
   "script_hash": "5c3141dff1ad",
   "scan_hours": 72,
@@ -341,6 +341,51 @@
           "avg_hr": 146,
           "max_hr": 146,
           "avg_cadence": 82.0,
+          "zone": 1
+        }
+      ]
+    },
+    {
+      "activity_id": "i203750996",
+      "date": "2026-10-31",
+      "type": "Ride",
+      "name": "Badung Road Cycling",
+      "interval_summary": [
+        "1x 9m1s 119bpm"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "541s@119bpm",
+          "duration_secs": 541,
+          "avg_hr": 119,
+          "max_hr": 133,
+          "zone": 1
+        }
+      ]
+    },
+    {
+      "activity_id": "i203750984",
+      "date": "2026-10-31",
+      "type": "Ride",
+      "name": "Badung Road Cycling",
+      "interval_summary": [
+        "1x 53m30s 120bpm"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "3210s@120bpm",
+          "duration_secs": 3210,
+          "avg_hr": 120,
+          "max_hr": 158,
+          "zone": 1
+        },
+        {
+          "type": "RECOVERY",
+          "duration_secs": 1,
+          "avg_hr": 122,
+          "max_hr": 122,
           "zone": 1
         }
       ]
