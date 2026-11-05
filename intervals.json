@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T08:43:50.887510",
+  "generated_at": "2026-11-05T16:51:26.629182",
   "version": "3.106",
   "script_hash": "5c3141dff1ad",
   "scan_hours": 72,
@@ -482,6 +482,25 @@
           "max_hr": 150,
           "avg_cadence": 83.333336,
           "zone": 2
+        }
+      ]
+    },
+    {
+      "activity_id": "i206116402",
+      "date": "2026-11-05",
+      "type": "VirtualRun",
+      "name": "Zwift - Epic Run in Watopia",
+      "interval_summary": [
+        "1x 23m3s 140bpm"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "1383s@140bpm",
+          "duration_secs": 1383,
+          "avg_hr": 140,
+          "max_hr": 162,
+          "zone": 1
         }
       ]
     }
