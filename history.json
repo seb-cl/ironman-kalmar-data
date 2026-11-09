@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-11-09T02:48:53.130812",
+  "generated_at": "2026-11-09T21:03:21.492310",
   "source": "Intervals.icu API",
   "sync_version": "3.106",
   "script_hash": "5c3141dff1ad",
   "data_range": {
     "earliest": "2026-04-14",
-    "latest": "2026-11-07",
+    "latest": "2026-11-09",
     "total_months": 6
   },
   "ftp_timeline": [
@@ -80,12 +80,12 @@
   ],
   "summaries": {
     "90d": {
-      "avg_weekly_tss": 120.0,
-      "avg_weekly_hours": 3.2,
+      "avg_weekly_tss": 121.0,
+      "avg_weekly_hours": 3.3,
       "ctl_start": 42.7,
       "ctl_end": 15.6,
-      "total_activities": 34,
-      "rest_days": 56,
+      "total_activities": 35,
+      "rest_days": 55,
       "hard_days": 3
     },
     "180d": {
@@ -96,7 +96,7 @@
       "weeks_tracked": 26
     },
     "1y": {
-      "avg_monthly_tss": 672.0,
+      "avg_monthly_tss": 673.0,
       "ctl_peak": 40.4,
       "ctl_low": 1.8,
       "months_tracked": 13
@@ -4021,13 +4021,13 @@
     },
     {
       "date": "2026-11-09",
-      "total_hours": 0.0,
-      "total_tss": 0,
-      "activity_count": 0,
-      "activity_types": "Rest",
+      "total_hours": 1.1,
+      "total_tss": 15,
+      "activity_count": 1,
+      "activity_types": "WeightTraining",
       "ctl": 15.584753,
-      "atl": 13.520849,
-      "tsb": 2.1,
+      "atl": 15.517681,
+      "tsb": 0.1,
       "hrv": 51.290325,
       "rhr": null,
       "sleep_hours": null,
@@ -4035,8 +4035,8 @@
       "sleep_quality": null,
       "sleep_score": null,
       "weight_kg": null,
-      "is_hard_day": null,
-      "intensity_basis": null,
+      "is_hard_day": false,
+      "intensity_basis": "hr",
       "fatigue": null,
       "soreness": null,
       "stress": null,
@@ -5185,19 +5185,19 @@
     },
     {
       "month": "2026-11",
-      "total_hours": 5.0,
-      "total_tss": 107,
-      "activity_count": 7,
+      "total_hours": 6.11,
+      "total_tss": 122,
+      "activity_count": 8,
       "ctl_peak": 16.7,
       "ctl_low": 15.6,
       "ctl_end": 15.6,
       "avg_hrv": 49.0,
       "avg_rhr": null,
-      "z1_z2_pct": 94.0,
-      "z3_pct": 5.0,
-      "z4_plus_pct": 1.0,
+      "z1_z2_pct": 95.1,
+      "z3_pct": 4.1,
+      "z4_plus_pct": 0.8,
       "hard_days_avg_per_week": 0.0,
-      "longest_ride_hours": 1.07,
+      "longest_ride_hours": 1.1,
       "avg_weight_kg": null,
       "dominant_phase": "Maintenance",
       "days_with_data": 9
