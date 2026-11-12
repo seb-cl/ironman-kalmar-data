@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T08:16:01.024622",
+  "generated_at": "2026-11-12T16:55:50.678449",
   "version": "3.106",
   "script_hash": "5c3141dff1ad",
   "scan_hours": 72,
@@ -311,6 +311,73 @@
           "max_hr": 164,
           "avg_cadence": 80.70064,
           "zone": 3
+        }
+      ]
+    },
+    {
+      "activity_id": "i209090918",
+      "date": "2026-11-12",
+      "type": "Run",
+      "name": "Badung Running",
+      "interval_summary": [
+        "1x 7m11s 118bpm",
+        "4x 6m23s 136bpm",
+        "1x 3m17s 140bpm"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "431s@118bpm83rpm",
+          "duration_secs": 431,
+          "avg_hr": 118,
+          "max_hr": 135,
+          "avg_cadence": 83.438515,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "383s@136bpm81rpm",
+          "duration_secs": 394,
+          "avg_hr": 133,
+          "max_hr": 142,
+          "avg_cadence": 82.67259,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "383s@136bpm81rpm",
+          "duration_secs": 357,
+          "avg_hr": 138,
+          "max_hr": 145,
+          "avg_cadence": 82.78432,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "383s@136bpm81rpm",
+          "duration_secs": 390,
+          "avg_hr": 135,
+          "max_hr": 144,
+          "avg_cadence": 79.7641,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "383s@136bpm81rpm",
+          "duration_secs": 389,
+          "avg_hr": 136,
+          "max_hr": 146,
+          "avg_cadence": 80.0437,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "197s@140bpm80rpm",
+          "duration_secs": 197,
+          "avg_hr": 140,
+          "max_hr": 144,
+          "avg_cadence": 79.807106,
+          "zone": 1
         }
       ]
     }
