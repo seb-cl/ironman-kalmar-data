@@ -70,7 +70,7 @@
   },
   "metadata": {
     "athlete_id": "REDACTED",
-    "last_updated": "2026-11-16T20:58:39.243735",
+    "last_updated": "2026-11-17T03:25:18.379887",
     "data_range_days": 7,
     "extended_range_days": 28,
     "version": "3.106"
@@ -129,7 +129,7 @@
       },
       "tsb": {
         "status": "green",
-        "value": 0.0
+        "value": 1.6
       }
     },
     "signal_summary": {
@@ -178,17 +178,17 @@
   },
   "current_status": {
     "fitness": {
-      "ctl": 14.58,
-      "atl": 14.56,
-      "tsb": 0.02,
-      "ramp_rate": -1.0,
+      "ctl": 14.24,
+      "atl": 12.62,
+      "tsb": 1.62,
+      "ramp_rate": -0.98,
       "fitness_source": "From Intervals.icu API (reflects completed workouts)"
     },
     "thresholds": {
-      "eftp": 147.7,
-      "w_prime": 12709,
+      "eftp": 147.6,
+      "w_prime": 12696,
       "w_prime_kj": 12.7,
-      "p_max": 537,
+      "p_max": 536,
       "vo2max": null,
       "sports": {
         "cycling": {
@@ -257,7 +257,7 @@
     "recovery_index_yesterday": null,
     "hrv_baseline_7d": null,
     "rhr_baseline_7d": null,
-    "hrv_baseline_28d": 46.6,
+    "hrv_baseline_28d": 47.0,
     "rhr_baseline_28d": null,
     "latest_hrv": null,
     "latest_rhr": null,
@@ -378,12 +378,12 @@
       "power_curve_delta": {
         "window_days": 28,
         "current_window": {
-          "start": "2026-10-20",
-          "end": "2026-11-16"
+          "start": "2026-10-21",
+          "end": "2026-11-17"
         },
         "previous_window": {
-          "start": "2026-09-22",
-          "end": "2026-10-19"
+          "start": "2026-09-23",
+          "end": "2026-10-20"
         },
         "anchors": null,
         "rotation_index": null,
@@ -392,23 +392,23 @@
       "hr_curve_delta": {
         "window_days": 28,
         "current_window": {
-          "start": "2026-10-20",
-          "end": "2026-11-16"
+          "start": "2026-10-21",
+          "end": "2026-11-17"
         },
         "previous_window": {
-          "start": "2026-09-22",
-          "end": "2026-10-19"
+          "start": "2026-09-23",
+          "end": "2026-10-20"
         },
         "anchors": {
           "60s": {
             "current_bpm": 174,
-            "previous_bpm": 171,
-            "pct_change": 1.8
+            "previous_bpm": 158,
+            "pct_change": 10.1
           },
           "300s": {
             "current_bpm": 172,
-            "previous_bpm": 162,
-            "pct_change": 6.2
+            "previous_bpm": 152,
+            "pct_change": 13.2
           },
           "1200s": {
             "current_bpm": 163,
@@ -421,14 +421,14 @@
             "pct_change": -26.8
           }
         },
-        "rotation_index": 12.4,
+        "rotation_index": 20.0,
         "note": "Compares max sustained HR at 4 anchor durations (60s anaerobic ceiling, 300s VO2max HR, 1200s threshold HR, 3600s endurance HR) across two 28d windows. rotation_index = mean(60s,300s pct_change) - mean(1200s,3600s pct_change). Positive = intensity-biased HR shift, negative = endurance-biased. No sport filter \u2014 HR is cross-sport physiological (dominated by hardest efforts). IMPORTANT: rising max sustained HR is ambiguous \u2014 may indicate improved cardiac output (good) or accumulated fatigue/dehydration/heat (bad). Cross-reference with resting HRV, resting HR, RPE, and environmental context before interpreting. Null when either window has fewer than 3 valid anchor durations."
       },
       "sustainability_profile": {
         "window": {
           "days": 42,
-          "start": "2026-10-06",
-          "end": "2026-11-16"
+          "start": "2026-10-07",
+          "end": "2026-11-17"
         },
         "weight_kg": 81.3,
         "weight_source": "athlete_profile",
@@ -497,13 +497,13 @@
       "benchmark_percentage": null,
       "seasonal_expected": null
     },
-    "eftp": 147.7,
-    "w_prime": 12709,
+    "eftp": 147.6,
+    "w_prime": 12696,
     "w_prime_kj": 12.7,
-    "p_max": 537,
+    "p_max": 536,
     "power_model_source": "wellness.sportInfo",
     "vo2max": null,
-    "calculation_timestamp": "2026-11-16T20:58:39.242804",
+    "calculation_timestamp": "2026-11-17T03:25:18.379218",
     "data_quality": {
       "hrv_data_points": 0,
       "rhr_data_points": 0,
@@ -1693,45 +1693,6 @@
   ],
   "wellness_data": [
     {
-      "date": "2026-11-10",
-      "weight_kg": null,
-      "resting_hr": null,
-      "hrv_rmssd": null,
-      "hrv_sdnn": null,
-      "sleep_hours": null,
-      "sleep_formatted": null,
-      "sleep_quality": null,
-      "sleep_score": null,
-      "mental_energy": null,
-      "avg_sleeping_hr": null,
-      "vo2max": null,
-      "fatigue": null,
-      "soreness": null,
-      "stress": null,
-      "mood": null,
-      "motivation": null,
-      "injury": null,
-      "hydration": null,
-      "spO2": null,
-      "blood_glucose": null,
-      "systolic": null,
-      "diastolic": null,
-      "baevsky_si": null,
-      "lactate": null,
-      "respiration": null,
-      "body_fat_pct": null,
-      "abdomen_cm": null,
-      "steps": null,
-      "hydration_volume_l": null,
-      "kcal_consumed": null,
-      "carbohydrates_g": null,
-      "protein_g": null,
-      "fat_g": null,
-      "menstrual_phase": null,
-      "menstrual_phase_predicted": null,
-      "readiness": null
-    },
-    {
       "date": "2026-11-11",
       "weight_kg": null,
       "resting_hr": null,
@@ -1928,6 +1889,45 @@
     },
     {
       "date": "2026-11-16",
+      "weight_kg": null,
+      "resting_hr": null,
+      "hrv_rmssd": null,
+      "hrv_sdnn": null,
+      "sleep_hours": null,
+      "sleep_formatted": null,
+      "sleep_quality": null,
+      "sleep_score": null,
+      "mental_energy": null,
+      "avg_sleeping_hr": null,
+      "vo2max": null,
+      "fatigue": null,
+      "soreness": null,
+      "stress": null,
+      "mood": null,
+      "motivation": null,
+      "injury": null,
+      "hydration": null,
+      "spO2": null,
+      "blood_glucose": null,
+      "systolic": null,
+      "diastolic": null,
+      "baevsky_si": null,
+      "lactate": null,
+      "respiration": null,
+      "body_fat_pct": null,
+      "abdomen_cm": null,
+      "steps": null,
+      "hydration_volume_l": null,
+      "kcal_consumed": null,
+      "carbohydrates_g": null,
+      "protein_g": null,
+      "fat_g": null,
+      "menstrual_phase": null,
+      "menstrual_phase_predicted": null,
+      "readiness": null
+    },
+    {
+      "date": "2026-11-17",
       "weight_kg": null,
       "resting_hr": null,
       "hrv_rmssd": null,
