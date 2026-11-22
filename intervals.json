@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T02:25:02.327032",
+  "generated_at": "2026-11-22T09:59:04.453616",
   "version": "3.106",
   "script_hash": "5c3141dff1ad",
   "scan_hours": 72,
@@ -235,6 +235,73 @@
           "avg_hr": 153,
           "max_hr": 159,
           "avg_cadence": 84.192986,
+          "zone": 2
+        }
+      ]
+    },
+    {
+      "activity_id": "i213063400",
+      "date": "2026-11-22",
+      "type": "Run",
+      "name": "Berlin Running",
+      "interval_summary": [
+        "1x 5m36s 136bpm",
+        "4x 5m35s 154bpm",
+        "1x 4s 151bpm"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "336s@136bpm84rpm",
+          "duration_secs": 336,
+          "avg_hr": 136,
+          "max_hr": 156,
+          "avg_cadence": 83.73214,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "335s@154bpm85rpm",
+          "duration_secs": 329,
+          "avg_hr": 153,
+          "max_hr": 159,
+          "avg_cadence": 85.57751,
+          "zone": 2
+        },
+        {
+          "type": "WORK",
+          "label": "335s@154bpm85rpm",
+          "duration_secs": 333,
+          "avg_hr": 155,
+          "max_hr": 163,
+          "avg_cadence": 85.22222,
+          "zone": 3
+        },
+        {
+          "type": "WORK",
+          "label": "335s@154bpm85rpm",
+          "duration_secs": 336,
+          "avg_hr": 153,
+          "max_hr": 161,
+          "avg_cadence": 85.29464,
+          "zone": 2
+        },
+        {
+          "type": "WORK",
+          "label": "335s@154bpm85rpm",
+          "duration_secs": 340,
+          "avg_hr": 155,
+          "max_hr": 162,
+          "avg_cadence": 85.411766,
+          "zone": 3
+        },
+        {
+          "type": "WORK",
+          "label": "4s@151bpm84rpm",
+          "duration_secs": 4,
+          "avg_hr": 151,
+          "max_hr": 152,
+          "avg_cadence": 84.0,
           "zone": 2
         }
       ]
